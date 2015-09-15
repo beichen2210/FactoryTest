@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/floralwhite">
+
+	<TextView
+	    android:id="@+id/tv_gsgryocal_title"
+	    style="@style/TextTitle"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginTop="30dp"
+	    android:gravity="center"
+	    android:layout_centerInParent="true"
+	    android:text="@string/tv_gsgyrocal_title" />
+
+<!-- pss modify for VFOZBENQ-83 20150909 start-->
+	<!--before	
+    <TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="45dp"
+	    android:layout_marginBottom="5dp"
+	    android:id="@+id/tv_gsgryocal_info"
+	    android:layout_centerHorizontal="true"
+	    android:textSize="25sp"
+	    android:textStyle="bold"
+	    android:layout_below="@id/tv_gsgryocal_title"
+	    android:text="@string/tv_gsgyrocal_info"/>
+    
+    <Button 
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_start_cal"
+        android:text="@string/bt_gsgyrocal_start"
+        android:layout_below="@id/tv_gsgryocal_info"
+        android:layout_marginTop="30dp"
+        android:padding="25dp"
+        android:textSize="25sp"
+        android:background="@drawable/selector_button"
+        android:layout_centerHorizontal="true"/>
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_gsgyrocal_hint_gsensor"
+        android:id="@+id/tv_gsgryocal_hint_gsensor"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        style="@style/textTitle_m"
+        android:layout_below="@id/bt_start_cal" /> -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="25dp"
+	    android:layout_marginBottom="5dp"
+	    android:id="@+id/tv_gsgryocal_info"
+	    android:layout_centerHorizontal="true"
+	    android:textSize="16sp"
+	    android:textStyle="bold"
+	    android:layout_below="@id/tv_gsgryocal_title"
+	    android:text="@string/tv_gsgyrocal_info"/>
+    
+    <Button 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_start_cal"
+        android:text="@string/bt_gsgyrocal_start"
+        android:layout_below="@id/tv_gsgryocal_info"
+        android:layout_marginTop="15dp"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
+        android:textSize="25sp"
+        android:background="@drawable/selector_button"
+        android:layout_centerHorizontal="true"/>
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_gsgyrocal_hint_gsensor"
+        android:id="@+id/tv_gsgryocal_hint_gsensor"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        style="@style/textTitle_m"
+        android:layout_below="@id/bt_start_cal" />
+	<!-- pss modify for VFOZBENQ-83 20150909 end-->
+	
+    <!-- android:layout_alignBottom="@id/tv_gsgryocal_hint_gsensor" -->
+    <!-- pss modify for VFOZBENQ-83 20150909 start-->
+	<!--before
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_gsgryocal_hint_gsensor"
+        android:layout_toRightOf="@id/tv_gsgryocal_hint_gsensor"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/bt_gssor_cal_status"
+        android:text="@string/cal_status_un"
+        style="@style/textStyle"/> -->
+	<TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_gsgryocal_hint_gsensor"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:id="@+id/bt_gssor_cal_status"
+        android:text="@string/cal_status_un"
+        style="@style/textStyle"/>
+	<!-- pss modify for VFOZBENQ-83 20150909 end-->
+	
+    
+    <!-- 数据 -->
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:minLines="3"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:paddingLeft="10dp"
+        android:layout_below="@id/tv_gsgryocal_hint_gsensor"
+        style="@style/contentStyle"
+        android:id="@+id/tv_gssor_value"/>
+	<!-- pss modify for VFOZBENQ-83 20150909 start-->
+	<!--before
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_gsgyrocal_hint_gyro"
+        android:id="@+id/tv_gsgryocal_hint_gyro"
+        android:layout_marginLeft="20dp"
+        style="@style/textTitle_m"
+        android:padding="10dp"
+        android:layout_below="@id/tv_gssor_value" />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_gsgryocal_hint_gyro"
+        android:layout_alignBottom="@id/tv_gsgryocal_hint_gyro"
+        android:layout_toRightOf="@id/tv_gsgryocal_hint_gyro"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/bt_gyro_cal_status"
+        android:text="@string/cal_status_un"
+        style="@style/textStyle"/> -->
+	 <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_gsgyrocal_hint_gyro"
+        android:id="@+id/tv_gsgryocal_hint_gyro"
+        android:layout_marginLeft="14dp"
+        style="@style/textTitle_m"
+        android:padding="10dp"
+        android:layout_below="@id/tv_gssor_value" />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/tv_gsgryocal_hint_gyro"
+        android:padding="10dp"
+        android:id="@+id/bt_gyro_cal_status"
+        android:text="@string/cal_status_un"
+        style="@style/textStyle"/>
+	<!-- pss modify for VFOZBENQ-83 20150909 start-->
+	
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:paddingLeft="10dp"
+        android:minLines="3"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        style="@style/contentStyle"
+        android:layout_below="@id/tv_gsgryocal_hint_gyro"
+        android:id="@+id/tv_gyro_value"/>
+    
+</RelativeLayout>

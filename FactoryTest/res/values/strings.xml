@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--pss add for VFOZBENQ-83 20150909-->
+    <string name="app_name">Factory Test</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="bt_auto_test">Auto Test</string>
+    <string name="bt_manual_test">Manual Test</string>
+    <string name="bt_test_report">Test Report</string>
+    <string name="bt_reboot">Factory Reset</string>
+    <string name="title_activity_manual_test">Manual Test</string>
+    <string name="bt_pass">PASS</string>
+    <string name="bt_fail">FAIL</string>
+    <!-- 测试项的名字 -->
+    <string name="item_keymotor">Key/Motor</string>
+    <string name="item_simcard">Call\n/Card</string>
+    <string name="item_TouchPanel">Touch Screen</string>
+    <string name="item_LCD">LCD</string>
+    <string name="item_GssorGyroCal">Acceleration\n/Gyroscope</string>
+    <string name="item_Flash">Flash</string>
+    <string name="item_VersionInfo">Version/Charge</string>
+    <string name="item_Loudspeaker">Horn</string>
+    <string name="item_Ringtone">Microphone/Receiver</string>
+    <string name="item_SensorShow">Sensor</string>
+    <string name="item_FM">FM</string>
+    <string name="item_NFC">NFC</string>
+    <string name="item_SystemCamera">Camera</string>
+    <string name="item_Headset">Headset</string>
+    <string name="item_hall_switch">Holzer switch</string>
+    <string name="item_lcdbacklight">LCD Backlight</string>
+    <string name="item_ledkeypad">LED</string>
+<!--<string name="item_wifibtgps">BT\n/WIFI/GPS</string> 
+    <string name="wifibtgps">BT/WIFI/GPS</string> -->
+    <!-- pss modify VFOZBENQ-92 20150910--> 
+    <string name="item_wifibt">BT/WIFI</string>
+    <string name="item_gps">GPS</string>
+    <string name="wifibt">BT/WIFI</string>
+
+
+    <!-- lcd测试文本 -->
+    <string name="lcd_tips">The picture shows whether uniform normal</string>
+
+    <!-- FM收音机 -->
+    <string name="dlg_noantenna_text">You need to use headphones to act as an antenna, please insert the headset.</string>
+    <string name="dlg_noantenna_title">insert the headset</string>
+    <string name="btn_yes">YES</string>
+    <string name="btn_no">Confirm</string>
+    <string name="default_station_name">New Channel</string>
+    <string name="openDevice_success">Open FM device success!\n\t\t\tPlaying...</string>
+    <string name="openDevice_fail">Failed to open the FM device!</string>
+    <string name="fmIsOpening">opening the FM device...</string>
+    <string name="nfc_inTesting">Testing..</string>
+    <string name="nfc_testfinish">Test end!</string>
+    <string name="fm_unit">MHz</string>
+
+    <!-- 传感器 -->
+    <string name="tv_gsgyrocal_title">Calibration Acceleration/Gyroscope</string>
+    <string name="tv_gsgyrocal_info">Please put your mobile phone in a horizontal table.</string> <!-- chb modify for factorytest -->
+    <string name="bt_gsgyrocal_start">Calibrate</string>
+    <string name="tv_gsgyrocal_hint_gyro">2.Gyroscope calibration ( Success-Turn green )</string>
+    <string name="tv_gsgyrocal_hint_gsensor">1.acceleration calibration ( Success - Turn green )</string>
+    <string name="tv_use_sensor_info">If there is no corresponding sensor on the current phone, please cancel the corresponding sensor, to avoid affecting the test!</string>
+    <string name="cal_status_un">Not calibrated</string>
+    <string name="cal_status_ing">Calibrating...</string>
+    <string name="cal_status_success">Calibration Success!</string>
+    <string name="cal_status_fail">Calibration Failure!</string>
+    <string name="tv_gssor_not_available">Not Support!</string>
+    <string name="tv_gyro_not_available">Not Support!</string>
+    <string name="tv_mssor_not_available">Not Support!</string>
+    <string name="tv_lssor_not_available">Not Support!</string>
+    <string name="tv_pssor_not_available">Not Support!</string>
+    <string name="tv_use_gyroscope">Gyroscope</string>
+    <string name="tv_use_gsensor">Acceleration Sensor</string>
+    <string name="tv_gssor">1.Acceleration Sensor：</string>
+    <string name="tv_gssor1">(Change the phone is placed on the right, anti, and, the next, the left, right, whether it is green)</string>
+    <string name="tv_gryo">2.Gyroscope:</string>
+    <string name="tv_mssor">3.Magnetic Field:</string>
+    <string name="tv_lssor">4.Light Sensor:</string>
+    <!-- 屏幕颜色变绿 -->
+    <string name="tv_lssor1">(When the hand blocking device light, the screen color is green)</string>
+    <!-- 屏幕颜色变绿 -->
+    <string name="tv_pssor">5.Range sensor:</string>
+    <!-- 屏幕颜色变蓝 -->
+    <string name="tv_pssor1">(When the hand is close to the device, the screen color is blue)</string>
+    <!-- 屏幕颜色变蓝 -->
+    <string name="toast_cal_success">Calibration Success!</string>
+    <string name="toast_cal_failed">Calibration Failure!</string>
+    <string name="cal_gyro_start">Gyroscope:</string>
+    <string name="cal_gssor_start">Acceleration Sensor:</string>
+    <string name="tv_sensor_is_change">(Whether all beat)</string>
+
+    <!-- 测试报告 -->
+    <string name="report_title">Test Report</string>
+    <string name="report_pass_item">Correct Item</string>
+    <string name="report_fail_item">Error Item</string>
+    <string name="report_uncheck_item">Not Detected</string>
+    <string name="report_no_item">NO</string>
+    <string name="btn_clear_state">Clear Data</string>
+    <!-- 自动测试 -->
+    <string name="auto_test_finish">Automatic Test Finish!</string>
+    <!-- 触摸屏 -->
+    <string name="touch_panel_test_success">Touch Screen Test Finish!</string>
+    <string name="tp_test_pass_hint">Pass!Tap the screen.</string>
+
+    <!-- CHB的文本 -->
+    <!-- 版本、电池信息 -->
+    <string name="Version">Version Information</string>
+    <string name="Battery">Charge State</string>
+    <string name="sw_ver_">SW Ver</string>
+    <string name="barcode_">BarCode</string>
+    <string name="imei1_">IMEI1</string>
+    <string name="imie2_">IMIE2</string>
+    <string name="bt_addr_">BT ADDR</string>
+    <string name="wifi_mac_">WIFI MAC</string>
+    <string name="bulidtime_">BulidTime</string>
+    <string name="_batteryCharging">C Green</string>
+    <string name="_chargingVoltage">B Voltage:</string>
+    <string name="_chargingCurrent">C Current</string>
+    <string name="_batteryCurrent">B Current:</string>
+    <string name="chargingVol">C Voltage</string>
+    <string name="discharging">Discharging</string>
+    <string name="chargingUSB">Charging(USB)</string>
+    <string name="chargingAC">Charging(AC)</string>
+    <string name="plug_charged">Please insert charger test charge.</string>
+    <!-- 喇叭测试模块 -->
+    <string name="_headset_listen">Headset hearing</string>
+    <string name="_inHeadset">2.Insert Headset</string>
+    <string name="_headset_loud">Sound outside</string>
+    <string name="_isNorml">(normal?)</string>
+    <string name="_isNoVould">(Silent?)</string>
+    <string name="_loud_Music">1.Sound External Test</string>
+    <string name="ishassound">Please judge that the headset and the outside is normal.</string>
+    <string name="isloudspeakernomal">After playing outside the normal,\nplease insert the headset to continue testing.</string>
+    <string name="isloudnomal">Please put the normal, and then insert the headset test.</string>
+    <string name="headset_connected">Inserted</string>
+    <string name="headset_unconnected">Not inserted</string>
+    <string name="music_file_no_exits">The specified music file does not exist in the SD card root directory</string>
+    <string name="SDcard_no_exits">The music file does not exist with the SD card, playing the preset songs</string>
+    <string name="string_error_report">Error Report</string>
+    <string name="string_can_not_copy">Could not copy</string>
+    <string name="play_music">Music:</string>
+    <string name="play_music_path">T Card: testsong</string>
+    <string name="play_music_exits">(existed?)</string>
+    <string name="exits">Existed!</string>
+    <string name="no_exits">Not existed!</string>
+    <string name="file_no_exits">Not Exist</string>
+    <!-- 麦克风听筒模块 -->
+    <string name="_second_mic">Deputy MIC</string>
+    <string name="_close">(Not supported)</string>
+    <string name="_open">(Has been opened)</string>
+    <string name="_main_second">Vice principal</string>
+    <string name="judge_loudspeaker">After insertion of headphones, please judge:</string>
+    <string name="_mic_main">Main MIC</string>
+    <string name="_headset_mic_juge">(please look at the headset blowing, Headset earpiece sound, and determine whether the normal)</string>
+    <string name="hear_From_ringtone">Please listen to the sound from the receiver.</string>
+    <string name="test_headset">Please start the test, the headset blowing.</string>
+    <string name="mic_test_tip">(please click the button again to determine whether the receiver audio recording, normal)</string>
+    <string name="insert_the_headset">Please insert the headset, and then test!</string>
+    <string name="out_the_headset">Please pull out the headphones, and then test!</string>
+    <string name="tip">Prompt</string>
+    <string name="tip_ok">Confirm</string>
+    <string name="tvrefmictest">Sub wheat test</string>
+    <string name="refmic">Deputy wheat</string>
+    <string name="themainMICtest">Main wheat test</string>
+    <string name="MAIN_Please_speaking">Please speak to the lord.</string>
+    <string name="Stop_talking_and_playing">Stop talking and play the tape recorder.</string>
+	<string name="Stop_playing">Stop playing</string>
+    <!-- 耳机模块 -->
+    <string name="headset">Headphone Detection</string>
+    <string name="_ununited">Not Inserted</string>
+    <string name="_speakToHeadsetMic">2.The headset blowing:</string>
+    <string name="_pressHeadset">3.Headset button detection (green):</string>
+    <string name="headsetstate">1.Headset Inserted:</string>
+    <string name="head_tip">Please insert the headset for testing!</string>
+    <string name="_headin">Not Inserted</string>
+    <string name="inside_Headset">Please insert the headset for testing.</string>
+    <string name="press_key_no"> Not Press button</string>
+    <string name="press_key_yes">Pressed button</string>
+    <!-- 相机模块 -->
+    <string name="_mainCamera_TAG">Main:Camera logo</string>
+    <string name="_secondCamera_TAG">Sub:Camera logo</string>
+    <string name="_flash_TAG">Flash Mark</string>
+    <string name="checkCamera">Device does not support camera function</string>
+    <string name="changeCamera">Click the button to switch around camera!</string>
+    <string name="Flashfinished">Flash Finish</string>
+    <string name="Mainpicturessuccess">Main Camera:Photo Finished</string>
+    <string name="Mainpicturesfailure">Main Camera:Photo Failure</string>
+    <string name="SUBpicturessuccess">Sub Camera:Preview Finished</string>
+    <string name="SUBpicturesfailure">Sub Camera:Preview Failured</string>
+    <string name="back_camera">1.Rear Camera:</string>
+    <string name="front_camera">2.Front Camera:</string>
+    <string name="open_tag">Open</string>
+    <string name="takepicture_tag">Not carried out</string>
+    <string name="Main">Main</string>
+    <string name="SUB">Sub</string>
+    <string name="bcamera_no_exits">Rear Camera not exists!</string>
+    <string name="fcamera_no_exits">Front Camera not exists!</string>
+    <string name="success">Success</string>
+    <string name="fail">Fail</string>
+    <string name="noprocess">Not carried out</string>
+    <string name="fenge">：</string>
+    <string name="judge">Judge：</string>
+
+    <!-- 闪光灯模块 -->
+    <string name="open">Open</string>
+	<string name="had_open">Opened</string>
+	<string name="had_close">Closed</string>
+	<string name="close">Close</string>
+	<string name="front_flash">Front Flash Light</string>
+	<string name="openfront_flash">Open Front Flash Light</string>
+	<string name="openback_flash">Open Rear Flash Light</string>
+	<string name="flash_back">Rear Flash Light</string>
+	<string name="flashled_tip">(Please click the button to switch off the lights, and make a judgment.)</string>
+	<string name="flashled_unsupport">The phone does not support flash!</string>
+    <!-- reboot 模块 -->
+    <string name="rebootphone">Reset the phone</string>
+    <string name="reboot_tip">Format cell phone store</string>
+    <string name="reboot_tip1">Clear all the data, such as music or photos, in the mobile phone store.</string>
+    <string name="reboot_tip_final">Determine the removal of personal information and all the stores? Please note that this operation can not be revoked!</string>
+    <string name="hello">Device reboot Demo</string>
+    <string name="disreboot">Cancel restore factory settings</string>
+    <string name="ablereboot">Activate restore factory settings</string>
+    <string name="ckdisablereboot">Cancel format</string>
+    <string name="reboot_message">Warning:\nthis operation to restore the factory settings of mobile phone, after activation will erase all data on the mobile phone, please caution!</string>
+    <string name="reset_factory_ok">Confirm</string>
+    <string name="reset_factory_cancel">Cancle</string>
+    <string name="reset_factory_context">Confirm the recovery factory settings?</string>
+    
+   	
+   	
+	
+   
+		
+    <!-- 按键和马达测试名字 -->
+    <string name="keytest">Key Test</string>
+    <string name="motortest">Motor Test</string>
+
+    <!-- 20150117 15:04 -->
+    <string name="start_backlight">Testing LED、BackLight</string>
+    <!-- 霍尔开关 -->
+    <string name="holzer_tips">Please close the magnet to the cell phone for testing</string>
+    <string name="holzer_init">Not Work</string>
+    <string name="holzer_on">Merge</string>
+    <string name="holzer_off">Open</string>
+    <string name="holzer_test">Holzer switch is not detected</string>
+    <string name="holzer_test1">Holzer switch normal</string>
+
+    <!-- 背光测试 -->
+    <string name="mtvlcdbacklighttitle">LCD BackLight Test</string>
+    <string name="mtvledbacklighttitle">LED Test</string>
+    <string name="mtvbacklighttitle">Key backlight</string>
+    <string name="mtvlcdbacklight3">Automatic adjustment of brightness has been opened, please set to manual adjustment, the screen backlight tests</string>
+    <string name="mtvlcdbacklight4">Screen backlight is light and shade.</string>
+    <string name="mtvledbacklightnote">↑↑↑ 1.LED whether the color of alternating flashing  </string>
+    <string name="mtvkeypadbacklightnote">↓↓↓ 2.Key backlight is flashing together </string>
+
+    <!-- 按键和马达检测 -->
+    <string name="mtvvolumeup">volumeup</string>
+    <string name="mtvvolumedown">volumedown</string>
+    <string name="mtvpower">power</string>
+    <string name="mtvmenu">menu</string>
+    <string name="mtvhome">home</string>
+    <string name="mtvback">back</string>
+    <string name="mbtmotorStop">Stop Motor</string>
+
+    <!-- 信号及各卡的检测 -->
+    <string name="mtvtel">tel:</string>
+    <string name="mbtsim1callmobile">10086</string>
+    <string name="mbtsim2callmobile">10086</string>
+    <string name="mbtsim1callunicom">10010</string>
+    <string name="mbtsim2callunicom">10010</string>
+    <string name="mtvsimtitle">Card/Call</string>
+    <string name="mtvtname">T Card</string>
+    <string name="mtvemmcname">eMMc</string>
+    <string name="mtvemmcfatname">eMMc FAT</string>
+    <string name="mtvsim1name">SIM1</string>
+    <string name="mtvsim2name">SIM2</string>
+    <string name="mtvhascard">Has Card</string>
+    <string name="mtvnocard">No Card</string>
+    <string name="mtvseperator">/</string>
+    <string name="mtvmb">MB</string>
+    <string name="mtvgb">GB</string>
+    <string name="mtvsimtile">Call</string>
+    <string name="mtvcardtile">Card Test</string>
+    <string name="mtvusbname">otg</string>
+
+
+    <!-- 蓝牙&WIFI&GPS -->
+    <string name="mtvwifi">1.Wifi</string>
+    <string name="mtvbluetooth">2.BT</string>
+    <string name="mtvgps">3.GPS</string>
+    <string name="mtvconcomplete">Connection success</string>
+    <string name="mtvconfail">Connection failure</string>
+    <string name="mtvsearsuccess">Search success</string>
+    <string name="mtvsearfail">Search failure</string>
+    <string name="mtvssid">SSID:</string>
+    <string name="mtvchannel">Channel:</string>
+    <string name="mtvaccstrength">Single Strength:</string>
+    <string name="mtvwifisearlist">Search WIFI list is as follows:</string>
+    <string name="mtvspeed">Rate:</string>
+    <string name="mtvequipment">Device name</string>
+    <string name="mtvstrength">“Strength(/dBm)”</string>
+    <string name="mtvsnr">Signal to noise ratio(/db)</string>
+    <string name="mtvpostime">Position Time:</string>
+    <string name="mtvsatnum">Satellite numbe</string>
+    <string name="mtvrefresh">Click here to refresh the WIFI list</string>
+    <string name="mtvtesting">Testing</string>
+    <string name="mtvdbm">dBm</string>
+    <string name="mtvwifiscanning">WIFI searching...</string>
+    <string name="mtvwificonnectting">WIFI connecting...</string>
+    <string name="mtvinitwifi">Initialize WIFI</string>
+    <string name="mtvinitwififail">Failed to initialize WIFI</string>
+    <string name="mtvwificonnectting1">WIFI reconnecting...</string>
+    <string name="mtvbtsearsuccess">Search completion</string>
+    <string name="mtvbtsearfail">Search completed, not found in the Bluetooth device</string>
+    <string name="mtvbtscanning">Bluetooth searching...</string>
+    <string name="mtvbtconnectting">Bluetooth connecting...</string>
+    <string name="mtvinitbt">Initialization of Bluetooth</string>
+    <string name="mtvinitbtfail">Bluetooth initialization failure</string>
+    <string name="mtvms">ms</string>
+    <string name="mtvgpssearfail">Search timeout!</string>
+    <string name="mtvgpsscanning">GPS searching...</string>
+    <string name="mtvinitgps">initialize GPS</string>
+    <string name="mtvinitgpsfail">initialization of GPS failed.</string>
+    <string name="mtvsdcard">SD Card</string>
+    <string name="mtvphoneStorage">Mobile storage</string>
+    <string name="mtvgpssearsuccess">Positioned,number：</string>
+    <string name="mtvs">s</string>
+	<string name="noTest">Not Tested</string>
+
+    <!-- 呼吸灯 -->
+    <string name="breathlight_title">Respiratory light detection</string>
+    <string name="breathlight_note">Breathing lights are flashing?</string>
+    <string name="test_finish_reboot">(only after the completion of the test)</string>
+    <string name="headsetout_tip">Please pull out the headphones and then test!</string> <!--chb add for factorytest 2015.7.23  -->
+	<!-- laiyang add for VFOZBENQ-78:添加多点触摸測試 20150902 start -->
+	<string name="allow_point_num">Supported %d Point</string>
+	<string name="multi_pointer_test">Multi Point Test</string>
+	<!-- laiyang add for VFOZBENQ-78:添加多点触摸測試 20150902 end -->
+</resources>
