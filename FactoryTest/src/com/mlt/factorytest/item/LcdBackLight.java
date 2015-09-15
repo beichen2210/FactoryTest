@@ -40,7 +40,7 @@ public class LcdBackLight extends AbsHardware {
 
     // if the activity is pause , mIsLcdTestPause is true , or it is false
     // if it is true , test pauses.
-    // if it is false , test continues.  
+    // if it is false , test continues.
     public static boolean mIsLcdTestPause;
 
     // the instantiation of BackLight Class

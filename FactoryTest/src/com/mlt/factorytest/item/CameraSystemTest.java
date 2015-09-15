@@ -27,6 +27,12 @@ import com.mlt.factorytest.ItemTestActivity;
 * @author:   chehongbin
 * @date:     2015年1月27日 下午1:31:30  
 * Copyright (c) 2015 MALATA,All Rights Reserved.
+* Modify History
+* ---------------------------
+* Who	:	chehongbin
+* When	:	2015年1月27日
+* JIRA	:	
+* What	:	ADD text dispaly of sms input number
 */
 public class CameraSystemTest extends AbsHardware {
 	private String TAG = "CAMERA";

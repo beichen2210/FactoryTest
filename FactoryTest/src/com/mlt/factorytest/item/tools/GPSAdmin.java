@@ -39,7 +39,6 @@ public class GPSAdmin {
 	//This message is used to display the GPS satellite status change
 	private final int MSG_UPDATE_GPS_LISTVIEW = 15;
 	
-	private final int MSG_UPDATE_GPS_LOCATIONFINISH = 17;//pss add for VFOZBENQ-95 20150911
 	public GPSAdmin(Context context) {
 		this.mContext = context;
 		this.mHandler = null;
@@ -69,15 +68,7 @@ public class GPSAdmin {
 			@Override
 			public void onLocationChanged(Location location) {
 
-			  //pss add for VFOZBENQ-95 20150911 start
-               if (mHandler != null) {
-                    Message msg = new Message();
-                    msg.arg1 = MSG_UPDATE_GPS_LOCATIONFINISH;
-                    mHandler.sendMessage(msg);
-              }
-             Log.i("pss","Location finish!");
-             //pss add for VFOZBENQ-95 20150911 end
-             
+				//Log.i("pss", "onLocationChanged");
 			}
 
 			@Override

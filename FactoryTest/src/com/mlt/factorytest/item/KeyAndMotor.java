@@ -33,18 +33,16 @@ public class KeyAndMotor extends AbsHardware {
     // HOME_KEY Block of code
     public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000;
 
-   //chb modify for factorytest :delete power_key test begin
-     // /PSS: power-off FactoryTest @{
-    // private static final String FACTORYTEST_NORMAL_POWERKEY_SHUTDOWN_ACTION = "android.intent.action.factoryTestshutdown";
-    // private static final String FACTORYTEST_NORMAL_POWERKEY_RENEW_ACTION = "android.intent.action.factoryTestrenew";
-    // private static final String FACTORYTEST_NORMAL_POWERKEY_DISABLE_ACTION = "android.intent.action.factoryTestdisable";
+    // /PSS: power-off FactoryTest @{
+    //private static final String FACTORYTEST_NORMAL_POWERKEY_SHUTDOWN_ACTION = "android.intent.action.factoryTestshutdown";
+    //private static final String FACTORYTEST_NORMAL_POWERKEY_RENEW_ACTION = "android.intent.action.factoryTestrenew";
+    //private static final String FACTORYTEST_NORMAL_POWERKEY_DISABLE_ACTION = "android.intent.action.factoryTestdisable";
     // /@}
-    //chb modify for factorytest :delete power_key test end
 
     // pss FactoryTest 20150131 begin
     private static final String FACTORYTEST_CLOSERECENTAPPS_ACTION = "com.android.factorytest.closerecentapps";
     private static final String FACTORYTEST_MENU_DISABLE_ACTION = "com.android.factorytest.menudisable";
-    private static final String FACTORYTEST_HOME_DISABLE_ACTION = "com.android.factorytest.homedisable";
+    //private static final String FACTORYTEST_HOME_DISABLE_ACTION = "com.android.factorytest.homedisable";
     private static final String FACTORYTEST_STARTRECENTAPPS_ACTION = "com.android.factorytest.startrecentapps";
     // end
     
@@ -58,13 +56,13 @@ public class KeyAndMotor extends AbsHardware {
     private final int MOTOR = 6;
     
     // the number of test cases
-    private final int TESTCASE_MAX_NUM = 6; ////chb modify for factorytest :delete power_key test 
+    private final int TESTCASE_MAX_NUM = 6;// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
 
     private Context mContext;
     
     // The ID of key button
     private TextView mtvVolumeUp,
-                     //mtvPower,  //chb modify for factorytest :delete power_key test 
+                     //mtvPower,// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
                      mtvVolumeDown, 
                      mtvMenu,
                      mtvHome,
@@ -86,11 +84,12 @@ public class KeyAndMotor extends AbsHardware {
 
     @Override
     public void onCreate() {
+        // TODO Auto-generated method stub
         ItemTestActivity.itemActivity.getWindow().setFlags(
                 FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);
         mKeyMotorFlag = new int[]{0, 0, 0, 0, 0, 0, 0};
         mKeyMotorTestCount = 0;
-        //motorTest(); //chb modify for factorytest :delete power_key test 
+        //motorTest(); // chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
         super.onCreate();
     }
 
@@ -102,6 +101,7 @@ public class KeyAndMotor extends AbsHardware {
      *             (c) 2015, Malata All Rights Reserved.
      */
     private void judgeKeyMotorExit(int count) {
+        // TODO Auto-generated method stub
         if (count == TESTCASE_MAX_NUM) {
             Message msg = new Message();
             msg.what = ItemTestActivity.itemActivity.MSG_BTN_PASS_CLICKABLE;
@@ -113,20 +113,18 @@ public class KeyAndMotor extends AbsHardware {
     public void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        motorTest();
+        motorTest(); // chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
         IntentFilter intentFilter = new IntentFilter();
-       // intentFilter.addAction(FACTORYTEST_NORMAL_POWERKEY_DISABLE_ACTION); //chb modify for factorytest :delete power_key test 
+        //intentFilter.addAction(FACTORYTEST_NORMAL_POWERKEY_DISABLE_ACTION);
         intentFilter.addAction(FACTORYTEST_MENU_DISABLE_ACTION);
-        intentFilter.addAction(FACTORYTEST_HOME_DISABLE_ACTION);
-
+        //intentFilter.addAction(FACTORYTEST_HOME_DISABLE_ACTION);
+       
         // send a broadcast to stop the function of the power button
         mContext.registerReceiver(mKeyReceiver, intentFilter);
-      //chb modify for factorytest :delete power_key test 
-       /* Intent powerIntent = new Intent();
+        //Intent powerIntent = new Intent();
+       // powerIntent.setAction(FACTORYTEST_NORMAL_POWERKEY_SHUTDOWN_ACTION);
+        //mContext.sendBroadcast(powerIntent);
 
-        powerIntent.setAction(FACTORYTEST_NORMAL_POWERKEY_SHUTDOWN_ACTION);
-        mContext.sendBroadcast(powerIntent);*/
-      //chb modify for factorytest :delete power_key test end
         // send a broadcast to stop the function of the menu button
         Intent menuIntent = new Intent();
         menuIntent.setAction(FACTORYTEST_CLOSERECENTAPPS_ACTION);
@@ -140,13 +138,11 @@ public class KeyAndMotor extends AbsHardware {
         // TODO Auto-generated method stub
         super.onPause();
         mContext.unregisterReceiver(mKeyReceiver);
-
-        //chb modify for factorytest :delete power_key test begin
+        mTipHelper.cancel(); // chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
         // send a broadcast to start the function of the power button
-        /*Intent powerIntent = new Intent();
-        powerIntent.setAction(FACTORYTEST_NORMAL_POWERKEY_RENEW_ACTION);
-        mContext.sendBroadcast(powerIntent);*/
-        //chb modify for factorytest :delete power_key test end
+        //Intent powerIntent = new Intent();
+        //powerIntent.setAction(FACTORYTEST_NORMAL_POWERKEY_RENEW_ACTION);
+       // mContext.sendBroadcast(powerIntent);
 
         // send a broadcast to start the function of the menu button
         Intent menuIntent = new Intent();
@@ -180,16 +176,14 @@ public class KeyAndMotor extends AbsHardware {
 
         // Create an instance and open the vibrator, and closed with button
         // events to control the vibrator
-       /* mTipHelper = new TipHelper(ItemTestActivity.itemActivity);
-        mTipHelper.vibrate(mPattern, true);*/
-    	//chb modify for factorytest :delete power_key test begin 
-    	 if (0 == mKeyMotorFlag[MOTOR]) {
-    		mTipHelper = new TipHelper(ItemTestActivity.itemActivity);
-    		mTipHelper.vibrate(mPattern, true);
+    	// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 begin
+    	 if (0 == mKeyMotorFlag[MOTOR]){
+	        mTipHelper = new TipHelper(ItemTestActivity.itemActivity);
+	        mTipHelper.vibrate(mPattern, true);
     	 }
-    	//chb modify for factorytest :delete power_key test end 
+    	// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 end
         mbtMotorStop.setOnClickListener(new View.OnClickListener() {
-    
+
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
@@ -219,7 +213,7 @@ public class KeyAndMotor extends AbsHardware {
         mtvBack = (TextView) view.findViewById(R.id.mtvback);
         mtvHome = (TextView) view.findViewById(R.id.mtvhome);
         mtvMenu = (TextView) view.findViewById(R.id.mtvmenu);
-        //mtvPower = (TextView) view.findViewById(R.id.mtvpower); ////chb modify for factorytest :delete power_key test 
+        //mtvPower = (TextView) view.findViewById(R.id.mtvpower);// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
         mtvVolumeDown = (TextView) view.findViewById(R.id.mtvvolumedown);
         mtvVolumeUp = (TextView) view.findViewById(R.id.mtvvolumeup);
         mbtMotorStop = (Button) view.findViewById(R.id.mbtmotorStop);
@@ -285,7 +279,20 @@ public class KeyAndMotor extends AbsHardware {
                 judgeKeyMotorExit(mKeyMotorTestCount);
             }
             return true;
-        } else {
+        }
+      // chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  begin
+        /*else if ((keyCode == KeyEvent.KEYCODE_POWER)
+                && (event.getRepeatCount() == 0)) {
+            mtvPower.setVisibility(View.INVISIBLE);
+            if (0 == mKeyMotorFlag[POWER]) {
+                mKeyMotorFlag[POWER] = 1;
+                mKeyMotorTestCount++;
+                judgeKeyMotorExit(mKeyMotorTestCount);
+            }
+            return true;
+        }*/
+     // chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 end
+        else {
             return super.onKeyDown(keyCode, event);
         }
     }
@@ -369,32 +376,28 @@ public class KeyAndMotor extends AbsHardware {
         public void onReceive(Context mContext, Intent mIntent) {
             // TODO Auto-generated method stub
             String action = mIntent.getAction();
-          //chb modify for factorytest :delete power_key test begin
-          /*  if (action.equals(FACTORYTEST_NORMAL_POWERKEY_DISABLE_ACTION)) {
-            	
+            /*if (action.equals(FACTORYTEST_NORMAL_POWERKEY_DISABLE_ACTION)) {
                 mtvPower.setVisibility(View.INVISIBLE);
                 if (0 == mKeyMotorFlag[POWER]) {
                     mKeyMotorFlag[POWER] = 1;
                     mKeyMotorTestCount++;
                     judgeKeyMotorExit(mKeyMotorTestCount);
                 }
-            } else*/
-          //chb modify for factorytest :delete power_key test end 
-            if (action.equals(FACTORYTEST_MENU_DISABLE_ACTION)) {
+            } else */if (action.equals(FACTORYTEST_MENU_DISABLE_ACTION)) {
                 mtvMenu.setVisibility(View.INVISIBLE);
                 if (0 == mKeyMotorFlag[MENU]) {
                     mKeyMotorFlag[MENU] = 1;
                     mKeyMotorTestCount++;
                     judgeKeyMotorExit(mKeyMotorTestCount);
                 }
-            }else if(action.equals(FACTORYTEST_HOME_DISABLE_ACTION)){
+            }/*else if(action.equals(FACTORYTEST_HOME_DISABLE_ACTION)){
 				mtvHome.setVisibility(View.INVISIBLE);
 				if(0 == mKeyMotorFlag[HOME]){
 					mKeyMotorFlag[HOME] = 1;
                     mKeyMotorTestCount++;
                     judgeKeyMotorExit(mKeyMotorTestCount);
 				}
-			}
+			}*/
         }
     };
 

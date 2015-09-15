@@ -51,6 +51,12 @@ import javax.security.auth.PrivateCredentialPermission;
 * @Function: TODO ADD FUNCTION
 * @author:   chehongbin
 * Copyright (c) 2015 MALATA,All Rights Reserved.
+* Modify History
+* ---------------------------
+* Who        :        chehongbin
+* When        :        2015-3-24
+* JIRA        :
+* What        :        ADD text dispaly of sms input number
 */
 public class AudioLoudspeakerTest extends AbsHardware {
     private static final String TAG = "LOUDSPEAKER";
@@ -82,7 +88,8 @@ public class AudioLoudspeakerTest extends AbsHardware {
 			"testsong.avi", "testsong.tti", "testsong.aac", "testsong.m4a", "testsong.ogg", "testsong.flac" };                        
     /** 
     * @Fields: headSetReceiver 
-    * @Description： TODO：Receive the headphones plug, and carries on the processing
+    * 						: Receive the headphones plug, and carries on the processing
+    * @Description�� TODO��
     */
     BroadcastReceiver headSetReceiver = new BroadcastReceiver() {
             @Override
@@ -125,6 +132,11 @@ public class AudioLoudspeakerTest extends AbsHardware {
         ItemTestActivity.itemActivity.handler.sendEmptyMessage(ItemTestActivity.MSG_BTN_PASS_UNCLICKABLE);
         /**start test*/
         startLoudspeakTest();
+        /**get the system  sound size*/
+        //currentVol = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        //startLoudspeakTest(); //To begin testing process, 
+                              //first of all to determine whether a SD card.
     }
 
     @Override

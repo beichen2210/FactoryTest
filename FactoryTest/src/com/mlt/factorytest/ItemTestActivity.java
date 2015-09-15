@@ -273,4 +273,10 @@ public class ItemTestActivity extends Activity {
 		mHW.onBackPressed();
 		super.onBackPressed();
 	}
+	// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  begin 
+	public void setBarBackground() {
+        mbtnFail.setTextColor(Color.WHITE);
+        mbtnPass.setTextColor(Color.WHITE);
+	}
+	// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  end
 }

@@ -117,6 +117,7 @@ public class LcdBackLight1 extends AbsHardware {
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e1) {
+                            // TODO Auto-generated catch block
                             e1.printStackTrace();
                         }
 
@@ -146,12 +147,14 @@ public class LcdBackLight1 extends AbsHardware {
 
     @Override
     public void onPause() {
+        // TODO Auto-generated method stub
         super.onPause();
         releaseWakeLock();
     }
 
     @Override
     public void onDestroy() {
+        // TODO Auto-generated method stub
         super.onDestroy();
         mIsBackLightExit = true;
         mIsTestShowFlag = true;
@@ -159,10 +162,12 @@ public class LcdBackLight1 extends AbsHardware {
 
     public LcdBackLight1(String text, Boolean visible) {
         super(text, visible);
+        // TODO Auto-generated constructor stub
     }
 
     @Override
     public View getView(Context context) {
+        // TODO Auto-generated method stub
         mLcdBackLight1 = this;
         this.context = context;
         LayoutInflater factory = LayoutInflater.from(context);

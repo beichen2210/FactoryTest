@@ -195,17 +195,20 @@ public class CardSimSingle extends AbsHardware {
     }
 
     public void onDestroy() {
+        // TODO Auto-generated method stub
         super.onDestroy();
     }
 
     @Override
     public void onResume() {
+        // TODO Auto-generated method stub
         super.onResume();
         // Unicom calls
         mbtnCallSim1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                // TODO Auto-generated method stub
                 setDefaultSIM(context, Settings.System.VOICE_CALL_SIM_SETTING,
                         mSim1CardInfoId);
 
@@ -221,6 +224,7 @@ public class CardSimSingle extends AbsHardware {
 
             @Override
             public void onClick(View view) {
+                // TODO Auto-generated method stub
                 setDefaultSIM(context, Settings.System.VOICE_CALL_SIM_SETTING,
                         mSim2CardInfoId);
                 if (UNICOM_FLAG == mSim2CardType) {
@@ -300,6 +304,7 @@ public class CardSimSingle extends AbsHardware {
      *             (c) 2015, Malata All Rights Reserved.
      */
     private void memoryCardTest() {
+        // TODO Auto-generated method stub
         mStorageManager = (StorageManager) context
                 .getSystemService(Context.STORAGE_SERVICE);
         StorageVolume[] storageVolumeList = mStorageManager.getVolumeList();

@@ -14,6 +14,11 @@ import com.mlt.factorytest.item.tools.SaveStatusTool;
  * author:laiyang<p>
  * 
  * This activity is to show AutoTest's results
+ * 
+ * Modification history
+ * -------------------------------------
+ * 
+ * -------------------------------------
  */
 public class TestReportActivity extends Activity {
 

@@ -16,10 +16,12 @@
         <item >@string/item_FM</item>
         <item >@string/item_GssorGyroCal</item>
         <item >@string/item_SensorShow</item>
+        <item >@string/item_NFC</item>
+        <item >@string/item_hall_switch</item>
         <item >@string/item_simcard</item>
         
        	<!-- <item >@string/item_wifibtgps</item> -->
-	    <!-- pss modify VFOZBENQ-92 20150910--> 
+	    <!-- pss modify LFZS-136 20150804--> 
         <item >@string/item_wifibt</item>
         <item >@string/item_gps</item>
         
@@ -40,10 +42,12 @@
         <item >com.mediatek.fmradio.FmRadioActivity</item>
         <item >com.mlt.factorytest.item.GsensorGyroscopeCalibration</item>
         <item >com.mlt.factorytest.item.SensorShow</item>
+        <item >com.mlt.factorytest.item.nfc.NFC</item>
+        <item >com.mlt.factorytest.item.HallSwitch</item>
         <item >com.mlt.factorytest.item.CardSimSingle</item>
-        <item >com.mlt.factorytest.item.WifiBtGps</item>
-        
-        <!-- pss add VFOZBENQ-92 20150910--> 
+        <!-- <item >com.mlt.factorytest.item.WifiBtGps</item> -->
+	<!-- pss modify LFZS-136 20150804--> 
+        <item >com.mlt.factorytest.item.WifiBtGps</item> 
         <item >com.mlt.factorytest.item.Gps</item>
     </string-array>
 

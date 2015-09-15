@@ -26,6 +26,9 @@ import com.mlt.factorytest.item.tools.SensorTool;
  * 2015-1-26
  * author:laiyang
  * Modification history
+ * -------------------------------------
+ * 
+ * -------------------------------------
  */
 public class GsensorGyroscopeCalibration extends AbsHardware implements 
 			SensorEventListener {
@@ -289,7 +292,7 @@ public class GsensorGyroscopeCalibration extends AbsHardware implements
 		public void handleMessage(Message msg) {
 			// if has GSensor and GSensor calibration success and
 			// has Gysrocope and Gyrocope calibration success ,set pass button clickable
-			if((!hasGSensor || isGSensorCalSuccess) || (!hasGyroscope || isGyroCalSuccess)) {
+			if((!hasGSensor || isGSensorCalSuccess) && (!hasGyroscope || isGyroCalSuccess)) {
 				// set pass button clickable
 				ItemTestActivity.itemActivity.handler.
 					sendEmptyMessage(ItemTestActivity.MSG_BTN_PASS_CLICKABLE);

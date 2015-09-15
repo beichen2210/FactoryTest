@@ -17,14 +17,22 @@ import android.widget.TextView;
 import com.mlt.factorytest.R;
 import com.mlt.factorytest.ItemTestActivity;
 
-/** 
-* @ClassName: AudioHeadsetTest 
-* @PackageName:com.mlt.factorytest.item
-* @Description: TODO ADD Description
-* @Function: TODO ADD FUNCTION
+
+/**
+* @ClassName: AudioHeadsetTest
+* @PackageName:com.malata.factorytest.item
+* @Description: Test Headset module ,
+*                                 See the headset are plugged in
+*                                 and headset playback button is normal
 * @author:   chehongbin
-* @date:     2015-7-27 下午2:36:09  
+* @date:     2015-2-10 下午5:36:42
 * Copyright (c) 2015 MALATA,All Rights Reserved.
+* Modify History
+* ---------------------------
+* Who        :        chehongbin
+* When        :        2015-2-10
+* JIRA        :
+* What        :        ADD text dispaly of sms input number
 */
 public class AudioHeadsetTest extends AbsHardware {
     private static final String TAG = "HEADSET";
@@ -37,11 +45,14 @@ public class AudioHeadsetTest extends AbsHardware {
     private boolean mHeasetNormal = false;
     private boolean mHeadsetInside = false;
     private boolean mKeydown = false;
+
+    //private boolean mRecord = false;
+    //private boolean mSign = false;
     private AudioManager mAudioManager;
 
-    /** 
-    * @Fields: headSetReceiver 
-    * @Description�� TODO��
+    /**
+    * @Fields: headSetReceiver
+    * TODO：BroadcastReceiver receiving headset plug event listeners
     */
     BroadcastReceiver headSetReceiver = new BroadcastReceiver() {
             @Override
@@ -66,6 +77,7 @@ public class AudioHeadsetTest extends AbsHardware {
                         mtvHeadsetStates.setText(R.string.headset_unconnected);
                         mtvHeadsetStates.setBackgroundColor(Color.RED); //The headset out, UI changes
                         mHeadsetInside = false;
+
                     }
                 } else {
                     // mRecord = false;
@@ -80,7 +92,10 @@ public class AudioHeadsetTest extends AbsHardware {
     @Override
     public void onCreate() {
         super.onCreate();
+
         mHeadsetInside = false;
+
+       
 
         /** To obtain the audio services*/
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
@@ -104,6 +119,38 @@ public class AudioHeadsetTest extends AbsHardware {
         return view;
     }
 
+    /*//key listening
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+            switch (keyCode) {
+            case KeyEvent.KEYCODE_MEDIA_PREVIOUS: //vol up key;
+                    Log.v("headset DOWN", "DOWN OK!");
+                    tvHeadsetUp.setBackgroundResource(R.drawable.left_press);
+                    tvHeadsetDown.setBackgroundResource(R.drawable.right_up);
+                    tvHeadsetstop.setBackgroundResource(R.drawable.stop_up);
+                    iskeydown = true;
+                    break;
+            case KeyEvent.KEYCODE_MEDIA_PAUSE: //vol play key;
+            case KeyEvent.KEYCODE_HEADSETHOOK:
+                    tvHeadsetUp.setBackgroundResource(R.drawable.left_up);
+                    tvHeadsetstop.setBackgroundResource(R.drawable.stop_press);
+                    tvHeadsetDown.setBackgroundResource(R.drawable.right_up);
+                    iskeydown = true;
+                    break;
+
+            case KeyEvent.KEYCODE_MEDIA_NEXT: //vol down key;
+                    tvHeadsetUp.setBackgroundResource(R.drawable.left_up);
+                    tvHeadsetDown.setBackgroundResource(R.drawable.right_press);
+                    tvHeadsetstop.setBackgroundResource(R.drawable.stop_up);
+                    iskeydown = true;
+                    break;
+            default:
+                    break;
+            }
+            isheadsetTestSuccess();
+            return false;
+    }
+    */
 
     /* (non-Javadoc)
      * @see com.malata.factorytest.item.AbsHardware#onKeyDown(int, android.view.KeyEvent)

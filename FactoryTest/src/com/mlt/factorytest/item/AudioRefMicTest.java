@@ -7,15 +7,16 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.mlt.factorytest.R;
+
 /** 
 * @ClassName: AudioRefMicTest 
-* @PackageName:com.mlt.factorytest.item
+* @PackageName:com.malata.factorytest.item
 * @Description: TODO ADD Description
 * @Function: TODO ADD FUNCTION
 * @author:   chehongbin
-* @date:     2015-7-27 下午2:36:41  
+* @date:     2015骞�鏈�7鏃�涓嬪崍1:31:21  
 * Copyright (c) 2015 MALATA,All Rights Reserved.
-*/
+*/  
 public class AudioRefMicTest extends Activity {
 	//private Context context;
 	//private TextView tvMainMic;

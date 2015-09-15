@@ -60,7 +60,7 @@ import com.mlt.factorytest.item.tools.WifiAdmin;
 
 /** 
 * @ClassName: WifiBtGps 
-* @Description: del for VFOZBENQ-92 20150910
+* @Description: modify for LFZS-136 
 * @author:   peisaisai
 * @date:     2015.8.5 am10:09:59 
 * @time: 10:09:59 

@@ -1,22 +1,16 @@
 package com.mlt.factorytest.item;
 
-import com.mlt.factorytest.R;
-import com.mlt.factorytest.R.string;
-import com.mlt.factorytest.ItemTestActivity;
-import com.mlt.factorytest.item.thread.BackLightThread;
-
 import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
+import android.graphics.Color;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
+
+import com.mlt.factorytest.ItemTestActivity;
+import com.mlt.factorytest.R;
+import com.mlt.factorytest.item.thread.BackLightThread;
 
 public class LedKeypad extends AbsHardware {
 
@@ -34,20 +28,41 @@ public class LedKeypad extends AbsHardware {
     // the flag of LedKeypadTest, if it is true ,LedkeypadTest finishes.
     private boolean mIsLedKeypadExit;
 
+
     public LedKeypad(String text, Boolean visible) {
         super(text, visible);
+        // TODO Auto-generated constructor stub
     }
 
     @Override
     public void onCreate() {
+        // TODO Auto-generated method stub
         super.onCreate();
         mIsLedTestExit = false;
         mIsKeypadTestExit = false;
         mIsLedKeypadExit = false;
+        
+        //yutianliang add for LFZS-24 begin
+        /*ItemTestActivity.itemActivity.findViewById(R.id.pass_fail_bar).setBackgroundColor(Color.BLACK);
+        
+        Button btnFail = (Button)ItemTestActivity.itemActivity.findViewById(R.id.btn_fail);        
+        btnFail.setBackgroundResource(R.drawable.selector_button_green);       
+        Button btnPass = (Button)ItemTestActivity.itemActivity.findViewById(R.id.btn_pass);
+        btnPass.setBackgroundResource(R.drawable.selector_button_green);*/
+        //yutianliang add for LFZS-24 end
+        /** set the acitivty title */
+        // ItemTestActivity.itemActivity.setTitle(R.string.item_BackLight);
+        ItemTestActivity.itemActivity.setBarBackground();// chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23 
+        ItemTestActivity.itemActivity.mbtnFail.setTextColor(Color.WHITE);
+        ItemTestActivity.itemActivity.mbtnPass.setTextColor(Color.WHITE);
+        ItemTestActivity.itemActivity.mbtnFail.setBackgroundResource(R.drawable.selector_button_black);
+        ItemTestActivity.itemActivity.mbtnPass.setBackgroundResource(R.drawable.selector_button_black);
+        ItemTestActivity.itemActivity.bar.setBackgroundColor(Color.BLACK);
     }
     
     @Override
     public void onStart() {
+        // TODO Auto-generated method stub
         super.onStart();
         ledTest();
         keypadTest();
@@ -55,6 +70,7 @@ public class LedKeypad extends AbsHardware {
 
     @Override
     public void onResume() {
+        // TODO Auto-generated method stub
         super.onResume();
         acquireWakeLock();
         mIsLedKeypadTestPause = false;
@@ -65,6 +81,7 @@ public class LedKeypad extends AbsHardware {
 
     @Override
     public void onPause() {
+        // TODO Auto-generated method stub
         super.onPause();
         releaseWakeLock();
         mIsLedKeypadTestPause = true;
@@ -72,6 +89,7 @@ public class LedKeypad extends AbsHardware {
 
     @Override
     public void onDestroy() {
+        // TODO Auto-generated method stub
         super.onDestroy();
         mIsLedKeypadExit = true;
     }
@@ -81,13 +99,14 @@ public class LedKeypad extends AbsHardware {
      * @Description: start LedTest.
      * @return void
      * @throws Copyright
-     *             (c) 2015, Malata All Rights Reserved.
+     *             (c) 2015, mlt All Rights Reserved.
      */
     private void ledTest() {
         new Thread(new Runnable() {
 
             @Override
             public void run() {
+                // TODO Auto-generated method stub
                 while (true) {
                     if (unexpectedShutdown()) {
                         break;
@@ -128,6 +147,7 @@ public class LedKeypad extends AbsHardware {
 
             @Override
             public void run() {
+                // TODO Auto-generated method stub
                 while (true) {
                     if (unexpectedShutdown()) {
                         break;
@@ -161,12 +181,30 @@ public class LedKeypad extends AbsHardware {
 
     @Override
     public View getView(Context context) {
+        // TODO Auto-generated method stub
         this.context = context;
         LayoutInflater factory = LayoutInflater.from(context);
         View view = factory.inflate(R.layout.item_ledkeypad_backlight, null);
+        
+        //yutianliang add for LFZS-24 begin
+       /* view.setBackgroundColor(Color.BLACK);
+        
+        TextView ledkeypadtitle = (TextView)view.findViewById(R.id.led_keypad_title);
+        ledkeypadtitle.setTextColor(Color.WHITE);
+
+        TextView mtvlednote = (TextView)view.findViewById(R.id.mtvlednote);
+        mtvlednote.setTextColor(Color.WHITE);
+
+        TextView mtvbacklighttitle = (TextView)view.findViewById(R.id.mtvbacklighttitle);
+        mtvbacklighttitle.setTextColor(Color.WHITE);
+
+        TextView mtvkeypadnote = (TextView)view.findViewById(R.id.mtvkeypadnote);
+        mtvkeypadnote.setTextColor(Color.WHITE);     */           
+        //yutianliang add for LFZS-24 end
         return view;
     }
 
+    // unused pss 20150206
     private WakeLock wakeLock = null;
 
     /**
@@ -174,7 +212,7 @@ public class LedKeypad extends AbsHardware {
      * @Description:Without operation to keep the screen in the awakened state
      * @return void
      * @throws Copyright
-     *             (c) 2015, Malata All Rights Reserved.
+     *             (c) 2015, mlt All Rights Reserved.
      */
     private void acquireWakeLock() {
         if (wakeLock == null) {
@@ -192,7 +230,7 @@ public class LedKeypad extends AbsHardware {
      * @Description:release the lock of screen
      * @return void
      * @throws Copyright
-     *             (c) 2015, Malata All Rights Reserved.
+     *             (c) 2015, mlt All Rights Reserved.
      */
     private void releaseWakeLock() {
         if ((wakeLock != null) && wakeLock.isHeld()) {
@@ -209,7 +247,7 @@ public class LedKeypad extends AbsHardware {
      * @return  
      * @return boolean   
      * @throws 
-     * Copyright (c) 2015,  malata All Rights Reserved.
+     * Copyright (c) 2015,  mlt All Rights Reserved.
      */
      private boolean unexpectedShutdown(){
          ActivityManager activityManager = (ActivityManager) context

@@ -138,7 +138,7 @@ public class Gps extends AbsHardware {
                 map.put("strength", s.getSnr());
                 mListGps.add(map);
                 if (mListGps.size() > GPS_MAX_NUM) {
-                  //sendMsg(MSG_UPDATE_GPS_LOCATIONFINISH); pss del for VFOZBENQ-95 20150911
+                    sendMsg(MSG_UPDATE_GPS_LOCATIONFINISH);
                     break;
                 }
             }

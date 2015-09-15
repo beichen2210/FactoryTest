@@ -19,6 +19,10 @@ import com.mlt.factorytest.item.tools.SaveStatusTool;
  * The class is to Auto test all items, when finish one test, step to next test.
  * You can click back to pause and exit AutoTest.
  * 
+ * Modification history
+ * -------------------------------------
+ * 
+ * -------------------------------------
  */ 
 public class AutoTestActivity extends Activity {
 	
@@ -31,6 +35,9 @@ public class AutoTestActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// if this activity is recycled before, Bundle savedInstanceSate not equals null,
+		// get the test position;
+		// or savedInstanceSate equals null , set MyApplication.currentAutoPos = 0
 		if(null != savedInstanceState) {
 			MyApplication.setCurrentAutoPos(savedInstanceState.getInt(CURRENT_POSITION, 0));
 		} else {
@@ -46,17 +53,6 @@ public class AutoTestActivity extends Activity {
 			Toast.makeText(this, getResources().
 					getString(R.string.auto_test_finish), Toast.LENGTH_LONG).show();
 			finish();
-			
-			//pss add for VFOZBENQ-15 20150821 start
-		    Intent intent = getIntent();
-		    Log.i("pss", "intentname : "+intent.getStringExtra("intentname"));
-		    if (intent.getStringExtra("intentname").equals("csdtool")) {
-		        Intent testReportIntent = new Intent(AutoTestActivity.this,TestReportActivity.class);
-		        testReportIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		        startActivity(testReportIntent);
-		    }
-			//pss add for VFOZBENQ-15 20150821 end
-			
 			super.onResume();
 			return;
 		}	

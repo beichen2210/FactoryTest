@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Align;// laiyang add for VFOZBENQ-78 20150902
 import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -56,7 +55,6 @@ public class TouchPanelView extends View implements
 	private Paint mPaint;
 	private Paint mPaintLine;
 	private Paint mPaintText;
-	private Paint mPaintCircle;//laiyang add for VFOZBENQ-78 20150902 
 	private ArrayList<CustomRect> mRects;
 	// list of Parallelograms
 	private ArrayList<Parallelogram> mParallelograms;
@@ -106,36 +104,13 @@ public class TouchPanelView extends View implements
 		mPaintText = new Paint();
 		mPaintText.setColor(Color.WHITE);
 		mPaintText.setTextSize(HINT_TEXT_SIZE);
+		
 		mBackCanvas.setBitmap(mBitmap);
-		// laiyang add for VFOZBENQ-78 20150902 start
-		mPaintText.setTextAlign(Align.CENTER);
-		mPaintText.setAntiAlias(true);
-		pointerCount = 0;
-		mPaintCircle = new Paint();
-		mPaintCircle.setAntiAlias(true);  
-        mPaintCircle.setStyle(Paint.Style.STROKE);
-        mPaintCircle.setStrokeWidth(30);
-        mPaintCircle.setTextSize(30);
-        mPaintCircle.setTextAlign(Align.CENTER);
-		// laiyang add for VFOZBENQ-78 20150902 end
+		
 		initMap();
 		mProcess = 1;
 		touchSum = mRects.size();
 	}
-	// laiyang add for VFOZBENQ-78 20150902 start
-	private int pointerCount = 0;
-	private float[][] pointers;
-	// color of touch pointers
-	private int color[] = new int[]{
-			Color.MAGENTA,
-			Color.RED,
-			Color.CYAN,
-			Color.YELLOW,
-			Color.BLUE,
-			Color.GREEN,
-			Color.LTGRAY
-	};
-	// laiyang add for VFOZBENQ-78 20150902 end
 	/**
 	 * init rectangle arrays position 
 	 */
@@ -291,33 +266,14 @@ public class TouchPanelView extends View implements
 	@Override
 	protected void onDraw(Canvas canvas) {
 		canvas.drawColor(Color.BLACK);
-		// laiyang modify for VFOZBENQ-78 20150902 start
-		/* old code:
-			drawTouchPanel(mBackCanvas);
-			if(isDrawPath) {
-				if(!(preX == touchX && preY == touchY)) {
-					mBackCanvas.drawLine(preX, preY, touchX, touchY, mPaint);
-				}	
-			} else if(!isDrawPath && isShowText) {
-				canvas.drawText(getContext().getString(R.string.tp_test_pass_hint), 100, 100, mPaintText);
-			}
-		*/
-		if(mProcess <= 2) {
-			drawTouchPanel(mBackCanvas);
-			if(isDrawPath) {
-				if(!(preX == touchX && preY == touchY)) {
-					mBackCanvas.drawLine(preX, preY, touchX, touchY, mPaint);
-				}	
-			} else if(!isDrawPath && isShowText) {
-				// laiyang modify for VFOZBENQ-87 20150907 start
-				// canvas.drawText(getContext().getString(R.string.tp_test_pass_hint), 100, 100, mPaintText);
-				canvas.drawText(getContext().getString(R.string.tp_test_pass_hint), width/2, 120, mPaintText);
-				// laiyang modify for VFOZBENQ-87 20150907 end
-			}
-		} else {
-			mBackCanvas.drawText(getContext().getString(R.string.multi_pointer_test), width/2, 100, mPaintText);
+		drawTouchPanel(mBackCanvas);
+		if(isDrawPath) {
+			if(!(preX == touchX && preY == touchY)) {
+				mBackCanvas.drawLine(preX, preY, touchX, touchY, mPaint);
+			}	
+		} else if(!isDrawPath && isShowText) {
+			canvas.drawText(getContext().getString(R.string.tp_test_pass_hint), 100, 100, mPaintText);
 		}
-		// laiyang modify for VFOZBENQ-78 20150902 end
 		canvas.drawBitmap(mBitmap, 0, 0, mPaint);
 		super.onDraw(canvas);
 	}
@@ -333,72 +289,29 @@ public class TouchPanelView extends View implements
 			}
 		}
 	}
-	
 	/**
 	 * when touch screen, get event X,Y position and judge the point whether in test area
 	 */
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
-		// laiyang modify for VFOZBENQ-78 20150902 start
-		/* old code:
 		int action = event.getAction();
+		preX = touchX;
+		preY = touchY;
+		touchX = event.getX();
+		touchY = event.getY();
+		switch(action) {
+		case MotionEvent.ACTION_DOWN:
 			preX = touchX;
 			preY = touchY;
-			touchX = event.getX();
-			touchY = event.getY();
-			switch(action) {
-			case MotionEvent.ACTION_DOWN:
-				preX = touchX;
-				preY = touchY;
-				isTouch();
-				invalidate();
-				break;
-			case MotionEvent.ACTION_MOVE:
-				isTouch();
-				invalidate();
-				break;
-			}
-			return true;
-		*/
-		if(mProcess <= 2) {
-			int action = event.getAction();
-			preX = touchX;
-			preY = touchY;
-			touchX = event.getX();
-			touchY = event.getY();
-			switch(action) {
-			case MotionEvent.ACTION_DOWN:
-				preX = touchX;
-				preY = touchY;
-				isTouch();
-				invalidate();
-				break;
-			case MotionEvent.ACTION_MOVE:
-				isTouch();
-				invalidate();
-				break;
-			}
-			return true;
-		}
-		int count = event.getPointerCount();
-		if(count > pointerCount) {
-			pointerCount = count;
-			pointers = new float[pointerCount][2];
-			mBackCanvas.drawColor(Color.BLACK);
-			for(int i = 0; i < pointerCount; i++) {
-				mPaintCircle.setColor(color[i]);
-				mBackCanvas.drawCircle(event.getX(i), event.getY(i), 80, mPaintCircle);
-				mPaintCircle.setStyle(Style.FILL);
-				mBackCanvas.drawText(""+(i+1),event.getX(i), event.getY(i)+15, mPaintCircle);
-				mPaintCircle.setStyle(Style.STROKE);
-			}
-			mBackCanvas.drawText(getContext().getString(R.string.multi_pointer_test), width/2, 100, mPaintText);
-			mBackCanvas.drawText(getContext().getString(R.string.allow_point_num, pointerCount)
-					,width/2,height/2,mPaintText);
+			isTouch();
 			invalidate();
+			break;
+		case MotionEvent.ACTION_MOVE:
+			isTouch();
+			invalidate();
+			break;
 		}
 		return true;
-		// laiyang modify for VFOZBENQ-78 20150902 end
 	}
 	/**
 	 * judge the square wether touched
@@ -435,10 +348,7 @@ public class TouchPanelView extends View implements
 					setOnTouchListener(null);
 					setOnClickListener(this);
 				}
-			}
-			// laiyang modify for VFOZBENQ-78 20150902 start
-			/* old code:
-			else {// finish Touch panel test
+			} else {// finish Touch panel test
 				if(!isFinish) {
 					isFinish = true;
 					isShowText = false;
@@ -447,17 +357,6 @@ public class TouchPanelView extends View implements
 					mTP.mHandler.sendEmptyMessage(TouchPanel.MSG_STEP_TO_FINISH);
 				}
 			}
-			*/
-			else if(mProcess == 2){// finish Touch panel test
-				if(!isFinish) {
-					isFinish = true;
-					isShowText = true;
-					isDrawPath = false;
-					setOnClickListener(this);
-					setOnTouchListener(null);
-				}
-			}
-			// laiyang modify for VFOZBENQ-78 20150902 end
 		}
 	}
 	
@@ -465,16 +364,8 @@ public class TouchPanelView extends View implements
 		isDrawPath = true;
 		setOnTouchListener(this);
 		mProcess++;
-		// laiyang modify for VFOZBENQ-78 20150902 start
-		/* old code:
-			currentTch = 0;
-			touchSum = mParallelograms.size();
-		*/
-		if(mProcess == 2) {
-			currentTch = 0;
-			touchSum = mParallelograms.size();
-		}
-		// laiyang modify for VFOZBENQ-78 20150902 end
+		currentTch = 0;
+		touchSum = mParallelograms.size();
 		if(!mBitmap.isRecycled()) {
 			mBitmap.recycle();
 			mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -605,16 +496,8 @@ public class TouchPanelView extends View implements
 			isShowText = false;
 			setOnClickListener(null);
 			stepToNext();
-		} 
-		// laiyang add for VFOZBENQ-78 20150902 start
-		else if(mProcess == 2) {
-			setOnClickListener(null);
-			isShowText = false;
-			stepToNext();
 			postInvalidate();
-			mTP.mHandler.sendEmptyMessage(TouchPanel.MSG_SHOW_BTNBAR);
 		}
-		// laiyang add for VFOZBENQ-78 20150902 end
 	}
 }
 

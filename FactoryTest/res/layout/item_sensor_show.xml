@@ -18,19 +18,11 @@
     	    android:text="@string/item_SensorShow"
     	    style="@style/TextTitle"/>
       </RelativeLayout>
-        <!-- pss modify for VFOZBENQ-83 20150909 start-->
-	<!--before
-	<View 
+        <View 
       	 android:layout_marginTop="30dp"
          android:layout_height="6dip"
          android:layout_width="fill_parent" 
-  		 android:background="@color/green" />  -->
-	 <View 
-      	 android:layout_marginTop="10dp"
-         android:layout_height="6dip"
-         android:layout_width="fill_parent" 
   		 android:background="@color/green" />  
-	<!-- pss modify for VFOZBENQ-83 20150909 end-->
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/rl_gyro">
         <TextView 
             android:text="@string/tv_gryo"
@@ -115,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/rl_mssor">
         <TextView 
             android:text="@string/tv_mssor"
@@ -156,7 +148,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/rl_lssor">
        <TextView 
             android:text="@string/tv_lssor"
@@ -199,7 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/rl_pssor">
         <TextView 
             android:text="@string/tv_pssor"

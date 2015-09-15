@@ -70,6 +70,13 @@ import com.android.internal.telephony.PhoneFactory;//存在
 * @author:   chehongbin
 * @date:     2015年1月27日 上午11:12:27  
 * Copyright (c) 2015 MALATA,All Rights Reserved.
+* 
+* Modify History
+* --------------------------- 
+* Who	:	chehongbin
+* When	:	2015年1月27日
+* JIRA	:	
+* What	:	ADD text dispaly of sms input number
 */
 
 public class VersionAndBatteryTest extends AbsHardware {
@@ -80,6 +87,9 @@ public class VersionAndBatteryTest extends AbsHardware {
 	private TextView mtvSWVer,mtvWiFiMAC,mtvBTADDR,mtvBuildTime,mtvBarCode;
 	private TextView mtvBatteryChargedState,mtvBatteryVoltage,mtvBatteryCurrent,
 					 mtvBatteryChargingVoltage,mtvBatteryChargingCurrent;
+	//private Object modemresult;
+	//private int apiVersion;
+	//private String systemVersionName;
 	private String mIMEI1,mIMEI2;
 	private static final String FILENAME_PROC_VERSION = "/proc/version";
 	
@@ -101,6 +111,7 @@ public class VersionAndBatteryTest extends AbsHardware {
     public void onCreate() {
     	super.onCreate();
     	this.mtimes = 1; 
+    	
 		Log.i(TAG, "oncreat");
 		/**set the pass button can't click*/
 		ItemTestActivity.itemActivity.handler.sendEmptyMessage(ItemTestActivity.MSG_BTN_PASS_UNCLICKABLE);
@@ -170,6 +181,14 @@ public class VersionAndBatteryTest extends AbsHardware {
 		/**Get the WIFI Mac*/
 		new MacAsyncTask().execute();
 		  
+		/**Get the barcode*/ 
+//		String barcode = null;
+//    	//barcode = PhoneFactory.getDefaultPhone().getSN();
+//    	Log.i(TAG_BARCODE, "barcode from getSN"+barcode );
+//    	mtvBarCode.setText(barcode.toString());
+		 
+		
+		
 		IBinder binder= ServiceManager.getService("NvRAMAgent");
 		NvRAMAgent agent = NvRAMAgent.Stub.asInterface(binder);
 		int file_lid=36;//The lid of AP_CFG_REEB_PRODUCT_INFO_LID is 25
@@ -180,9 +199,29 @@ public class VersionAndBatteryTest extends AbsHardware {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} 
+//		mtvBarCode.setText(buff.toString());   
 		mtvBarCode.setText(getSerialNumber());
 		
     	return getResult();
+    	
+		
+		/*TelephonyManager telephonyManager2 = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		String barcode = null;	
+		barcode = TelephonyManager.getDefault().getSN();
+		barcode = MTKPhoneFactory.getDefaultPhone().getSN();
+		char a = barcode.length()<63?'0':barcode.charAt(62);
+		char b = barcode.length()<62?'0':barcode.charAt(61);
+		char c = barcode.length()<61?'0':barcode.charAt(60);
+		String boardcode = barcode.length()<12?barcode:barcode.substring(0, 12);
+		StringBuffer boardCode = new StringBuffer();
+		boardCode.append((isLetterOrNumber(c)?c:"0")+" ");
+		boardCode.append((isLetterOrNumber(b)?b:"0")+"\n");
+		boardCode.append((isLetterOrNumber(a)?a:"0")+"\n");
+		boardCode.append(boardcode);
+		phoneSerialTextView.setText(barcode.toString());*/
+	  //phoneSerialTextView.setText(boardCode.toString());
+	  //barcode = MTKPhoneFactory.getDefaultPhone().getSN();
+    	
 	}
 	
 	public  String getSerialNumber(){
@@ -213,6 +252,21 @@ public class VersionAndBatteryTest extends AbsHardware {
 			mtvWiFiMAC.setText(mMac);
 		}
 	}
+	
+	
+	/** 
+	* @MethodName: isLetterOrNumber 
+	* @Functions:TODO
+	* @param paramChar
+	* @return  
+	* @return	:boolean   
+	* @throws 
+	*/
+//	private boolean isLetterOrNumber(char paramChar)  {
+//	    return ((paramChar <= 'Z') && (paramChar >= 'A')) 
+//			|| ((paramChar >= '0') && (paramChar <= '9')) 
+//			|| ((paramChar <= 'z') && (paramChar >= 'a'));
+//	  }
 	
 	
 	/** 
@@ -338,6 +392,8 @@ public class VersionAndBatteryTest extends AbsHardware {
 		 mIMEI1 = mTelephonyManagerEx.getDeviceId(PhoneConstants.SIM_ID_1);
 		 mIMEI2 = mTelephonyManagerEx.getDeviceId(PhoneConstants.SIM_ID_2);
 	}
+	
+	
 	
 	/** 
 	* @MethodName: isGeminiEnabled 

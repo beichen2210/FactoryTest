@@ -60,7 +60,8 @@
                 android:textColor="#000000"
                 style="@style/textStyle"  />
 
-            <TextView
+           <!--  chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  begin -->
+           <!--  <TextView
                 android:id="@+id/mtvpower"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -68,11 +69,11 @@
                 android:layout_weight="1"
                 android:clickable="false"
                 android:enabled="false"
-                android:visibility="gone"
                 android:gravity="center_horizontal"
                 android:text="@string/mtvpower"
                 android:textColor="#000000"
-                style="@style/textStyle"  />
+                style="@style/textStyle"  /> -->
+          <!--  chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  end -->
         </LinearLayout>
 
        

@@ -45,7 +45,6 @@ public class TouchPanel extends AbsHardware implements
 	 * The message of finish current activity 
 	 */
 	public static final int MSG_STEP_TO_FINISH = 0x02;
-	public static final int MSG_SHOW_BTNBAR = 0x03;// laiyang add for VFOZBENQ-78 20150902
 	/**
 	 * The application's context
 	 */
@@ -125,27 +124,16 @@ public class TouchPanel extends AbsHardware implements
 			WindowManager.LayoutParams.FLAG_FULLSCREEN, 
 			WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	}
-	// laiyang modify for VFOZBENQ-78 20150902 start
-	/* old code
-	@Override
-	public void onResume() {
-		// hidden buttonBar in bottom
-		ItemTestActivity.itemActivity.handler.
-			sendEmptyMessage(ItemTestActivity.MSG_BTNBAR_INVISIBLE);
-		super.onResume();
-	}
-	*/
 	/*
 	 * when show this activity,hidden buttonBar
 	 */
 	@Override
-	public void onCreate() {
+	public void onResume() {
 		// hidden buttonBar in bottom
 		ItemTestActivity.itemActivity.handler.
-			sendEmptyMessage(ItemTestActivity.MSG_BTNBAR_INVISIBLE);
-		super.onCreate();
+				sendEmptyMessage(ItemTestActivity.MSG_BTNBAR_INVISIBLE);
+		super.onResume();
 	}
-	// laiyang modify for VFOZBENQ-78 20150902 end
 	/**
 	 * 
 	 * 2015-2-10
@@ -166,12 +154,7 @@ public class TouchPanel extends AbsHardware implements
 			case MSG_STEP_TO_FINISH:
 				mbtnPass.setVisibility(View.VISIBLE);
 				break;
-			// laiyang add for VFOZBENQ-78 20150902 start
-			case MSG_SHOW_BTNBAR:
-				ItemTestActivity.itemActivity.handler.
-				sendEmptyMessage(ItemTestActivity.MSG_BTNBAR_VISIBLE);
-				mbtnFail.setVisibility(View.GONE);
-			// laiyang add for VFOZBENQ-78 20150902 end
+				
 			default:
 				break;
 			}

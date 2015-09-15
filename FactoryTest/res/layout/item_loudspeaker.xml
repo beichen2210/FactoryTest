@@ -31,39 +31,22 @@
              android:text="@string/play_music"
              style="@style/textTitle_m" />
 
-	<!-- pss modify for VFOZBENQ-83 20150909 start-->
-         <!--before
-	 <TextView
+         <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_marginLeft="30dp"
              android:layout_marginTop="10dp"
              android:text="@string/play_music_path"
-             style="@style/textStyle"/> 
-	     <TextView
+             style="@style/textStyle"/>
+
+         <TextView
              android:id="@+id/music_file_exit"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_marginLeft="30dp"
              android:layout_marginTop="10dp"
              android:text="@string/play_music_exits"
-             style="@style/textStyle"/>-->
-	     <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="0dp"
-             android:layout_marginTop="10dp"
-             android:text="@string/play_music_path"
              style="@style/textStyle"/>
-	     <TextView
-             android:id="@+id/music_file_exit"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="10dp"
-             android:layout_marginTop="10dp"
-             android:text="@string/play_music_exits"
-             style="@style/textStyle"/>
-	 <!-- pss modify for VFOZBENQ-83 20150909 end-->
 
      </LinearLayout>
     

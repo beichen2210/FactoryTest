@@ -21,12 +21,70 @@ public class RebootActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.item_reboot);
 		setTitle(R.string.bt_reboot);
+		//Intent intent = new Intent(TelephonyIntents.SECRET_CODE_ACTION,
+        //        Uri.parse("android_secret_code://" + "119"));
+		//this.sendBroadcast(intent);
+//	    Intent localIntent = new Intent();
+//	    localIntent.setClassName("com.android.settings", "com.android.settings.MasterClear");
+//	    startActivity(localIntent);
+		
+//		ComponentName cName = new ComponentName("com.android.settings","com.android.settings.MasterClear"); 
+//		Intent intent2 = new Intent(Intent.ACTION_MAIN);
+//		intent2.setComponent(cName);
+//		this.startActivity(intent2);
+		
+//		Intent intent = new Intent("com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET");
+//        ComponentName COMPONENT_NAME
+//                = new ComponentName("android", "com.android.internal.os.storage.ExternalStorageFormatter");
+//            intent.setComponent(COMPONENT_NAME);
+//            startService(intent);
+		//resetFactory();
 	} 
 	
+	
+	
+//	public void factoryreboot() {
+//		if(DIALOG_FEATURE){
+//	         AlertDialog dialog = new AlertDialog.Builder(mContext).setTitle(mContext.getString(R.string.reset_factory_title))
+//	         .setMessage(mContext.getString(R.string.reset_factory_context))
+//	         .setPositiveButton(mContext.getString(R.string.reset_factory_ok), mOkclick)
+//	         .setNegativeButton(mContext.getString(R.string.reset_factory_cancel), null)
+//	         .create();
+//	         dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);                  
+//	         dialog.show();  
+//	     }else{
+//	         resetFactory();
+//	     }
+//		
+//		
+//	}
+	
+	
+//	private void factoryreboot() {
+//	    mBuilder = new Builder(mContext);
+//	    
+//			mBuilder.setMessage(R.string.reset_factory_context);
+//		
+//			mBuilder.setTitle(R.string.reset_factory_title);
+//			mBuilder.setPositiveButton(R.string.reset_factory_ok, new OnClickListener() {
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				dialog.dismiss();
+//				//do something , When you click on the Dialog button
+//				 resetFactory();
+//			}
+//		});
+//			mBuilder.setNegativeButton(mContext.getString(R.string.reset_factory_cancel), null);
+//			mBuilder.create().show();
+//	    }
+	   
 	public void mOnClickListener(View view)	{ 
 			resetFactory();
 	};    
 	
+	 
+
+	    
 	private void resetFactory(){
 		 Intent intent = new Intent("com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET");
 	     ComponentName COMPONENT_NAME

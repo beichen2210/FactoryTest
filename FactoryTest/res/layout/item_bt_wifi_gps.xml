@@ -140,7 +140,7 @@
             </LinearLayout>
         </RelativeLayout>
 
-	<!-- pss modify for VFOZBENQ-92 20150910 
+        <!-- pss modify for LFZS-136 20150805 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>
-        </RelativeLayout>-->
+        </RelativeLayout> -->
     </LinearLayout>
 
     <View
