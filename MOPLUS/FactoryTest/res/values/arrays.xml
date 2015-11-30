@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="testitems">
+        <item >@string/item_VersionInfo</item>
+        <item >@string/item_TouchPanel</item>
+        <item >@string/item_LCD</item>
+        <item >@string/item_lcdbacklight</item>
+  <!--  <item >@string/item_ledkeypad</item> --> 
+        <item >@string/item_keymotor</item>
+        <item >@string/item_SystemCamera</item>
+        <item >@string/item_Flash</item>
+        <item >@string/item_Ringtone</item>
+        <item >@string/item_Loudspeaker</item>
+        <item >@string/item_Headset</item>
+        <item >@string/item_FM</item>
+        <item >@string/item_GssorGyroCal</item>
+        <item >@string/item_SensorShow</item>
+        <item >@string/item_simcard</item>
+        
+       	<!-- <item >@string/item_wifibtgps</item> -->
+	    <!-- pss modify VFOZBENQ-92 20150910--> 
+        <item >@string/item_wifibt</item>
+		<item >@string/item_bt</item> <!-- pss add for VFOZESGW-73 20151016-->
+        <item >@string/item_gps</item>
+        <item >@string/item_breathlight</item>
+        <item >@string/item_fingerprint</item>
+        
+    </string-array>
+    <!-- 测试类名 -->
+    <string-array name="testClassNames">
+        <item >com.mlt.factorytest.item.VersionAndBatteryTest</item>
+        <item >com.mlt.factorytest.item.TouchPanel</item>
+        <item >com.mlt.factorytest.item.LCD</item>
+        <item >com.mlt.factorytest.item.LcdBackLight1</item>
+   <!-- <item >com.mlt.factorytest.item.LedKeypad</item> -->
+        <item >com.mlt.factorytest.item.KeyAndMotor</item>
+        <item >com.mlt.factorytest.item.CameraSystemTest</item>
+        <item >com.mlt.factorytest.item.FlashLihgtTest</item>
+        <item >com.mlt.factorytest.item.AudioMicLoopTest</item>
+        <item >com.mlt.factorytest.item.AudioLoudspeakerTest</item>
+        <item >com.mlt.factorytest.item.AudioHeadsetTest</item>
+        <item >com.mediatek.fmradio.FmRadioActivity</item>
+        <item >com.mlt.factorytest.item.GsensorGyroscopeCalibration</item>
+        <item >com.mlt.factorytest.item.SensorShow</item>
+        <item >com.mlt.factorytest.item.CardSimSingle</item>
+        <item >com.mlt.factorytest.item.WifiBtGps</item>
+        <item >com.mlt.factorytest.item.Bt</item> <!-- pss add for VFOZESGW-73 20151016-->
+        <!-- pss add VFOZBENQ-92 20150910--> 
+        <item >com.mlt.factorytest.item.Gps</item>
+        <item >com.mlt.factorytest.item.BreathLightTest</item>
+        <item >com.mlt.factorytest.item.FingerprintTest</item>
+    </string-array>
+
+</resources>

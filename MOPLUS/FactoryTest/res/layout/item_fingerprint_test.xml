@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/floralwhite"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="6dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/green" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="6dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fingerprint_tv"
+        android:layout_marginTop="20dp"
+        android:background="@color/green" />
+
+    <TextView
+        android:id="@+id/fingerprint_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/item_fingerprint"
+        style="@style/TextTitle"/>
+    
+     <TextView
+       android:id="@+id/tv_fingerprint_tip"
+       android:layout_centerInParent="true"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="70dp"
+       android:text="@string/fingerprint_test_tip"
+       android:textSize="18sp"/>
+     
+     <TextView
+       android:id="@+id/tv_fingerprint_exist"
+       android:layout_centerInParent="true"
+       android:layout_below="@+id/tv_fingerprint_tip"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="70dp"
+       android:text="@string/tv_fingerprint_available"
+       android:visibility="gone"
+       android:textStyle="bold"
+       android:textSize="20sp"/>
+     
+      
+    
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+      <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    	<TextView
+    	    android:id="@+id/lcd_tietle"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentTop="true"
+    	    android:layout_marginTop="40dp"
+    	    android:padding="10dp"
+    	    android:visibility="invisible"
+    	    android:paddingLeft="10dp"
+    	    android:paddingRight="10dp"
+    	    android:layout_centerHorizontal="true"
+    	    android:gravity="center"
+    	    android:text="@string/item_LCD"
+    	    style="@style/TextTitle"/>
+      </RelativeLayout>
+   <ImageView 
+       android:id="@+id/img_lcd"
+       android:layout_height="fill_parent"
+       android:layout_width="fill_parent" />
+   
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    	 <TextView 
+	        android:id="@+id/tv_lcd"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="invisible"
+	        android:textColor="@color/red"
+	        android:layout_marginTop="600dp"
+	        android:gravity="center|bottom"
+	        android:layout_centerInParent="true"
+	        style="@style/textStyle_20"
+	        android:text="@string/lcd_tips"/>
+      </RelativeLayout>
+    
+   
+</FrameLayout>
