@@ -5,9 +5,13 @@ import java.util.List;
 import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiConfiguration.KeyMgmt;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
+
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +27,16 @@ import android.widget.ListView;
  * @author: peisaisai
  * @date: 2015-01-15 13:07:50 Copyright (c) 2015, Malata All Rights Reserved.
  */
+
+/** 
+* @ClassName: WifiAdmin 
+* @Description: modify for MOPLUES-39
+* @Function: TODO ADD FUNCTION
+* @author:   peisaisai
+* @date:     20151130 pm3:38:26 
+* @time: pm3:38:26 
+* Copyright (c) 2015,  Malata All Rights Reserved.
+*/
 public class WifiAdmin {
 	
 	// Define WifiManager object
@@ -39,6 +53,8 @@ public class WifiAdmin {
 	
 	//forget wifi
 	private WifiManager.ActionListener mForgetListener; //pss add for VFOZBENQ-140 20150922
+	
+	private WifiManager.ActionListener mConnectListener;
 	
 	public final int SECURITY_NONE = 0;
 	public final int SECURITY_WEP = 1;
@@ -302,6 +318,29 @@ public class WifiAdmin {
         return SECURITY_NONE;
     }
 	
+	private final int MSG_UPDATE_WIFI_FINISH = 3;
+	private final int MSG_UPDATE_WIFI_FAIL = 6;
+	public void connect(String ssid,String bssid,final Handler mHandler){
+	    WifiConfiguration mConfig = generateOpenNetworkConfig(ssid, bssid);
+	    mConnectListener = new WifiManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                Message msg = new Message();
+                msg.arg1 = MSG_UPDATE_WIFI_FINISH;
+                mHandler.sendMessage(msg);
+                Log.i("pss","connect success!");
+            }
+            @Override
+            public void onFailure(int reason) {
+                Message msg = new Message();
+                msg.arg1 = MSG_UPDATE_WIFI_FAIL;
+                mHandler.sendMessage(msg);
+                Log.i("pss","connect fail!");
+            }
+        };
+        mWifiManager.connect(mConfig, mConnectListener);
+	}
+	
 	//pss add for VFOZBENQ-140 20150922 start 
 	public void forget(int netId){
 	    mForgetListener = new WifiManager.ActionListener() {
@@ -317,5 +356,15 @@ public class WifiAdmin {
 	    mWifiManager.forget(netId, mForgetListener);
 	}
 	//pss add for VFOZBENQ-140 20150922 end
+	
+	protected WifiConfiguration generateOpenNetworkConfig(String ssid,String bssid) {
+
+        WifiConfiguration mConfig = new WifiConfiguration();
+        mConfig.SSID = "\"" + ssid + "\"";
+        /// M: set bssid to configuration
+        mConfig.BSSID = bssid;
+        mConfig.allowedKeyManagement.set(KeyMgmt.NONE);
+        return mConfig;
+    }
 	
 }

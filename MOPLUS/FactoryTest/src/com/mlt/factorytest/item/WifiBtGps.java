@@ -1,35 +1,23 @@
 package com.mlt.factorytest.item;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.R.bool;
-import android.R.color;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
-import android.location.GpsSatellite;
-import android.location.LocationManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,10 +28,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.mlt.factorytest.R;
-import com.mlt.factorytest.ItemTestActivity;
 import com.mlt.factorytest.item.thread.WifiThread;
-import com.mlt.factorytest.item.tools.BTAdmin;
-import com.mlt.factorytest.item.tools.GPSAdmin;
 import com.mlt.factorytest.item.tools.ListViewMethod;
 import com.mlt.factorytest.item.tools.WifiAdmin;
 
@@ -66,6 +51,15 @@ import com.mlt.factorytest.item.tools.WifiAdmin;
 * @time: 10:09:59 
 * Copyright (c) 2015,  Malata All Rights Reserved.
 */
+/** 
+* @ClassName: WifiBtGps 
+* @Description: modify for MOPLUES-39
+* @Function: Change  method of connection
+* @author:   peisaisai
+* @date:     20151130 pm3:38:26 
+* @time: pm3:38:26 
+* Copyright (c) 2015,  Malata All Rights Reserved.
+*/
 public class WifiBtGps extends AbsHardware {
     public static WifiBtGps mWifiBtGps;
 
@@ -74,57 +68,46 @@ public class WifiBtGps extends AbsHardware {
     private final int MSG_UPDATE_INIT_WIFI = 2;
     private final int MSG_UPDATE_WIFI_FINISH = 3;
     private final int MSG_UPDATE_CONNECTED_WIFI = 4;
-    private final int MSG_UPDATE_CONNECTED1_WIFI = 20;
     private final int MSG_UPDATE_WIFI_LISTVIEW = 5;
-    private final int MSG_UPDATE_INITFAIL_BT = 6;
-    private final int MSG_UPDATE_INIT_BT = 7;
-    private final int MSG_UPDATE_BT_LISTVIEW = 8;
-    private final int MSG_UPDATE_BT_FINISH = 9;
-    private final int MSG_UPDATE_BT_SEARCHING = 10;
+    private final int MSG_UPDATE_WIFI_FAIL = 6;
     
     // One of the biggest time needed for each test
     private final int WIFITEST_MAX_TIME = 60;
-    private final int BTTEST_MAX_TIME = 30;
 
     // The maximum number of search results
     private final int WIFI_MAX_NUM = 5;
-    private final int BT_MAX_NUM = 3;
 
-    private final int WIFITEST_MAX_NUM = 1;
+    private final int WIFITEST_MAX_NUM = 2;
     public static int mWifiTestNum;
 
     private final String SHAREPREFERCES_NAME = "TestState";
 
     // Whether open threads connected wifi
-    private boolean mIsWifiThreadTested;
+    //private boolean mIsWifiThreadTested;
 
 	// Whether close the WIFI connection thread
-	public boolean mIsWifiThreadExit;
+	//public boolean mIsWifiThreadExit;
 
 	private Context mContext;
 
 	// Out of the control switch threads
 	private boolean mIsWifiExit;
-	private boolean mIsBtExit;
 	
 	//A sign of wifi test is tested
 	private boolean mIsWifiTested;
+	
+	public static boolean mIsWifiThreadExit;
 
     // the switch to control the threads of timer
     private boolean mIsWifiTimeThreadExit;
-    private boolean mIsBtTimeThreadExit;
 
     // ID is textview display text
-    private TextView mbtnWifiConnect,
-                     mbtnBtConnect;
+    private TextView mbtnWifiConnect;
 
     private WifiAdmin mWifiAdmin;
-    private BTAdmin mBtAdmin;
-    private ListView  mlvBt, mlvWifi;
+    private ListView  mlvWifi;
     private SimpleAdapter mAdapterWifi;
-    private SimpleAdapter mAdapterBt;
     private List<Map<String, Object>> mListWifi;
-    private List<Map<String, Object>> mListBt;
     public WifiBtGps(String text, Boolean visible) {
         super(text, visible);
         // TODO Auto-generated constructor stub
@@ -134,20 +117,12 @@ public class WifiBtGps extends AbsHardware {
     public void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        filter.addAction(BluetoothDevice.ACTION_FOUND);
-        mContext.registerReceiver(mBtReceiver, filter);
         mWifiBtGps = WifiBtGps.this;
         Log.i("pss", "onResume");
         if (!mIsWifiTested) {
             startWifiTest();
             mIsWifiTested = true;
         }
-
-        /** set the acitivty title */
-        // ItemTestActivity.itemActivity.setTitle(R.string.item_WIFI_BT_GPS);
-
     }
 
 	@Override
@@ -155,11 +130,6 @@ public class WifiBtGps extends AbsHardware {
 		// TODO Auto-generated method stub
 		super.onPause();
 		Log.i("pss", "onPause");
-		mContext.unregisterReceiver(mBtReceiver);
-		if (mBtAdmin.mAdapter.isDiscovering()) {
-//			mBtAdmin.mAdapter.cancelDiscovery();
-		}
-
 	}
 
 	/*
@@ -175,21 +145,16 @@ public class WifiBtGps extends AbsHardware {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		Log.i("pss", "onDestroy");
+		mWifiAdmin = new WifiAdmin(mContext);
+		mWifiAdmin.forget(mWifiAdmin.getNetworkId());
 		closeWifiBtGpsTest();
 	}
 
 	public void closeWifiBtGpsTest() {
 		Log.i("pss", "colse start");
 		mIsWifiExit = true;
-		mIsBtExit = true;
-		mIsWifiThreadExit = true;
-		mIsWifiThreadTested = true;
 		mIsWifiTested = true;
 		mIsWifiTimeThreadExit = true;
-		mIsBtTimeThreadExit = true;
-		if (mBtAdmin.mAdapter.isDiscovering()) {
-			mBtAdmin.mAdapter.cancelDiscovery();
-		}
 		SharedPreferences sp = mContext.getSharedPreferences(
 				SHAREPREFERCES_NAME, Context.MODE_PRIVATE);
 		if (!sp.getBoolean("wifistate", false)) {
@@ -197,12 +162,6 @@ public class WifiBtGps extends AbsHardware {
 		}else{
 			mWifiAdmin.openWifi();
 		}
-		if (sp.getInt("btstate", 0) == BluetoothAdapter.STATE_OFF) {
-			mBtAdmin.closeBT();
-		}else{
-			mBtAdmin.openBT();
-		}
-		mListBt.clear();
 		mListWifi.clear();
 		Log.i("pss", "colse end");
 	}
@@ -212,6 +171,7 @@ public class WifiBtGps extends AbsHardware {
         // TODO Auto-generated method stub
         super.onCreate();
         Log.i("pss", "oncreate");
+        mWifiTestNum = 0;
         startWifiBtGpsTest();
     }
 
@@ -225,16 +185,10 @@ public class WifiBtGps extends AbsHardware {
     public void startWifiBtGpsTest() {
 
         mWifiDiscoveredNum = 0;
-        mWifiTestNum = 0;
 
         mIsWifiExit = false;
-        mIsBtExit = false;
-        mIsWifiThreadExit = false;
-        mIsWifiThreadTested = false;
         mIsWifiTested = false;
         mIsWifiTimeThreadExit = false;
-        mIsBtTimeThreadExit = false;
-        mBtAdmin = new BTAdmin(mContext);
         mWifiAdmin = new WifiAdmin(mContext);
 
         // Used to save the current state of mobile test item
@@ -242,153 +196,10 @@ public class WifiBtGps extends AbsHardware {
                 SHAREPREFERCES_NAME, Context.MODE_PRIVATE);
         Editor editor = sp.edit();
         editor.putBoolean("wifistate", mWifiAdmin.mWifiManager.isWifiEnabled());
-        editor.putBoolean("gpsstate", Settings.Secure
-                .isLocationProviderEnabled(mContext.getContentResolver(),
-                        LocationManager.GPS_PROVIDER));
-        Log.i("pss", "mBtAdmin:" + mBtAdmin + "MAdapter:" + mAdapterBt);
-        editor.putInt("btstate", mBtAdmin.mAdapter.getState());
         editor.commit();
     }
 
-	/**
-	 * @Fields: bReceiver TODO��Receiving bluetooth search information, when the
-	 *          search to a device will be added to the list, and determine
-	 *          whether the number more than three, if more than three, it will
-	 *          send search success.If the search is complete, the judge has at
-	 *          least one device in the list, only to send information search
-	 *          success.
-	 */
-	private BroadcastReceiver mBtReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
-            String action = intent.getAction();
-            if (action.equals(BluetoothDevice.ACTION_FOUND)) {
-                BluetoothDevice device = intent
-                        .getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                Map<String, Object> map = new HashMap<String, Object>();
-                map.put("ssid", device.getName());
-                map.put("strength",
-                        ""
-                                + intent.getExtras().getShort(
-                                        BluetoothDevice.EXTRA_RSSI));
-                if ((mListBt.size() < BT_MAX_NUM) && !mIsBtTimeThreadExit) {
-                    mListBt.add(map);
-                    sendMsg(MSG_UPDATE_BT_LISTVIEW);
-                } else if (mListBt.size() >= BT_MAX_NUM) {
-                    mIsBtExit = true;
-                }
-
-            } else if (action
-                    .equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
-                if (mListBt.size() != 0) {
-                    mIsBtExit = true;
-                }
-            }
-        }
-
-	};
-
-	/** 
-	* @MethodName: closeBtTest 
-	* @Description:After the BT test, have to do operation  
-	* @return void   
-	* @throws 
-	* Copyright (c) 2015,  Malata All Rights Reserved.
-	*/
-	private void closeBtTest() {
-		SharedPreferences sp1 = mContext.getSharedPreferences(
-				SHAREPREFERCES_NAME, Context.MODE_PRIVATE);
-
-		if (sp1.getInt("btstate", 0) == BluetoothAdapter.STATE_OFF) {
-			mBtAdmin.closeBT();
-		}
-
-		if (mBtAdmin.mAdapter.isDiscovering()) {
-			mBtAdmin.mAdapter.cancelDiscovery();
-		}
-		mIsBtTimeThreadExit = true;
-		mIsBtExit = true;
-//		startGpsTest();
-	}
-
-	/**
-	 * @MethodName: BT_Test
-	 * @Description:Bluetooth test, first of all empty list, whether the
-	 *                        bluetooth open, then to search in the search
-	 *                        process, will not be repeated search
-	 * @return void
-	 * @throws Copyright
-	 *             (c) 2015, Malata All Rights Reserved.
-	 */
-	private void startBtTest() {
-		// TODO Auto-generated method stub
-		mBtAdmin.openBT();
-		sendMsg(MSG_UPDATE_INIT_BT);
-		mListBt = new ArrayList<Map<String, Object>>();
-		final long preTime = System.currentTimeMillis();
-		new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                long lasTime;
-                while (true) {
-                    if (unexpectedShutdown()) {
-                        break;
-                    }
-                    if (mIsBtExit) {
-                        break;
-                    }
-                    lasTime = System.currentTimeMillis();
-                    if (BTTEST_MAX_TIME <= (lasTime - preTime) / 1000) {
-                        if ((!mBtAdmin.mAdapter.isEnabled()) && (!mIsBtExit)) {
-                            sendMsg(MSG_UPDATE_INITFAIL_BT);
-                            Log.i("pss",
-                                    "send a message:MSG_UPDATE_INITFAIL_BT");
-                        } else {
-                            mIsBtExit = true;
-                        }
-                        break;
-                    }
-                    if (mIsBtExit) {
-                        break;
-                    }
-                    if (mIsBtTimeThreadExit) {
-                        break;
-                    }
-                }
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                while (true) {
-                    if (unexpectedShutdown()) {
-                        break;
-                    }
-                    if (mIsBtExit) {
-                        sendMsg(MSG_UPDATE_BT_FINISH);
-                        break;
-                    }
-                    if (mBtAdmin.mAdapter.isEnabled()) {
-                        if (!mBtAdmin.mAdapter.isDiscovering()) {
-                            mListBt.clear();
-                            mBtAdmin.searchBT();
-                            if (!mIsBtExit) {
-                                sendMsg(MSG_UPDATE_BT_SEARCHING);
-                            }
-                            // break;
-                        }
-                    }
-                }
-            }
-        }).start();
-    }
-
-	private WifiThread wifiThread;
+	//private WifiThread wifiThread;
 
     /**
      * @MethodName: startWifiThread
@@ -397,12 +208,12 @@ public class WifiBtGps extends AbsHardware {
      * @throws Copyright
      *             (c) 2015, Malata All Rights Reserved.
      */
-    private void startWifiThread() {
+    /*private void startWifiThread() {
         wifiThread = new WifiThread(mContext, handler, mWifiAdmin, mListWifi,
                 mWifiTestNum);
         Thread td = new Thread(wifiThread);
         td.start();
-    }
+    }*/
 
 	private void closeWifiTest() {
 		mlvWifi.setEnabled(false);
@@ -412,7 +223,6 @@ public class WifiBtGps extends AbsHardware {
 		if (!sp.getBoolean("wifistate", false)) {
 			mWifiAdmin.closeWifi();
 		}
-		//startBtTest();  // pss del for VFOZESGW-73 20151016
 	}
 
 	/**
@@ -451,7 +261,7 @@ public class WifiBtGps extends AbsHardware {
                         break;
                     }
                     if (WIFITEST_MAX_TIME <= (lasTime - preTime) / 1000) {
-                        mIsWifiThreadExit = true;
+                        //mIsWifiThreadExit = true;
                         mIsWifiExit = true;
                         if (mIsWifiTimeThreadExit) {
                             break;
@@ -459,7 +269,7 @@ public class WifiBtGps extends AbsHardware {
                         if (mWifiAdmin.mWifiManager.getWifiState() != WifiManager.WIFI_STATE_ENABLED) {
                             sendMsg(MSG_UPDATE_INITFAIL_WIFI);
                         } else {
-                            sendMsg(MSG_UPDATE_WIFI_FINISH);
+                            sendMsg(MSG_UPDATE_WIFI_FAIL);
                         }
                         break;
                     }
@@ -476,15 +286,9 @@ public class WifiBtGps extends AbsHardware {
                         break;
                     }
                     Log.i("pss", "mIsWifiExit = " + mIsWifiExit);
-                    Log.i("pss", "mIsWifiThreadTested = " + mIsWifiThreadTested);
-                    Log.i("pss", "mIsWifiThreadTested = " + mIsWifiThreadTested);
-                    Log.i("pss", "mIsWifiExit = " + mIsWifiExit);
-                    Log.i("pss", "mIsWifiExit = " + mIsWifiExit);
                     if (mIsWifiExit) {
-                        if (!mIsWifiThreadTested) {
-                            startWifiThread();
-                            mIsWifiThreadTested = true;
-                        }
+                            sendMsg(MSG_UPDATE_CONNECTED_WIFI);
+                            Log.i("pss", "sendMsg(MSG_UPDATE_CONNECTED_WIFI);");
                         break;
                     }
                     Log.i("pss", "" + mWifiAdmin.mWifiManager.getWifiState());
@@ -532,6 +336,9 @@ public class WifiBtGps extends AbsHardware {
                 }
                 map = new HashMap<String, Object>();
                 map.put("ssid", scanResult.SSID);
+                
+                map.put("bssid", scanResult.BSSID);
+                
                 map.put("strength", "" + scanResult.level);
                 if ((!map.get("ssid").toString().contains("NVRAM WARNING"))
                         && (mListWifi.size() < WIFI_MAX_NUM)) {
@@ -572,14 +379,18 @@ public class WifiBtGps extends AbsHardware {
             case MSG_UPDATE_CONNECTED_WIFI:
                 mbtnWifiConnect.setText(mContext
                         .getString(R.string.mtvwificonnectting));
-                updateConnectWifi();
-                Log.i("pss", "receive a message:update connected wifi");
-                break;
+                //updateConnectWifi();
 
-            case MSG_UPDATE_CONNECTED1_WIFI:
-                mbtnWifiConnect.setText(mContext
-                        .getString(R.string.mtvwificonnectting1));
-                updateConnectWifi();
+                mWifiAdmin = new WifiAdmin(mContext);
+                Log.i("pss", "mWifiAdmin.getSpeed() > 0 :" + (mWifiAdmin.getSpeed() > 0));
+                if (mWifiAdmin.getSpeed() > 0) {
+                    sendMsg(MSG_UPDATE_WIFI_FINISH);
+                }else{
+                    String ssid = mListWifi.get(0).get("ssid").toString();
+                    String bssid = mListWifi.get(0).get("bssid").toString();
+                    mWifiAdmin.connect(ssid, bssid, handler);
+                }
+                
                 Log.i("pss", "receive a message:update connected wifi");
                 break;
 
@@ -598,64 +409,20 @@ public class WifiBtGps extends AbsHardware {
             // searing WIFI finished
             case MSG_UPDATE_WIFI_FINISH:
                 mWifiAdmin = new WifiAdmin(mContext);
-                if (mWifiAdmin.getSpeed() > 0) {
-                    mbtnWifiConnect.setText(mContext
+                mbtnWifiConnect.setText(mContext
                             .getString(R.string.mtvconcomplete));
-                    closeWifiTest();
-                } else {
+                closeWifiTest();
+                break;
+            case MSG_UPDATE_WIFI_FAIL:
+                mWifiTestNum++;
+                if(mWifiTestNum != WIFITEST_MAX_NUM){
+                    startWifiBtGpsTest();
+                    startWifiTest();
+                }else{
                     mbtnWifiConnect.setText(mContext
                             .getString(R.string.mtvconfail));
-                    mIsWifiTimeThreadExit = true;
-                    Log.i("pss", "" + (mWifiTestNum < WIFITEST_MAX_NUM) + ":"
-                            + "" + mIsWifiTimeThreadExit);
-                    if ((mWifiTestNum < WIFITEST_MAX_NUM)
-                            && mIsWifiTimeThreadExit) {
-                        mIsWifiExit = false;
-                        mIsWifiThreadExit = false;
-                        mIsWifiThreadTested = false;
-                        mIsWifiTested = false;
-                        mIsWifiTimeThreadExit = false;
-                        // Toast.makeText(ItemTestActivity.itemActivity, "fail",
-                        // Toast.LENGTH_SHORT).show();
-                        mWifiTestNum++;
-                        mWifiDiscoveredNum = 0;
-                        startWifiTest();
-                    } else {
-                        closeWifiTest();
-                    }
+                    closeWifiTest();
                 }
-
-                break;
-            case MSG_UPDATE_INIT_BT:
-                mbtnBtConnect.setText(mContext.getString(R.string.mtvinitbt));
-                break;
-            case MSG_UPDATE_INITFAIL_BT:
-                Log.i("pss", "receive a message:" + MSG_UPDATE_INITFAIL_BT);
-                mbtnBtConnect.setText(mContext.getString(R.string.mtvinitbtfail));
-                mbtnBtConnect.setBackgroundColor(Color.RED);
-                closeBtTest();
-                break;
-
-            // update the listview of BT
-            case MSG_UPDATE_BT_LISTVIEW:
-                Collections.sort(mListBt, new ListComparator());
-                updateListview(mListBt, mAdapterBt, mlvBt);
-                break;
-
-            case MSG_UPDATE_BT_SEARCHING:
-                mbtnBtConnect.setText(mContext.getString(R.string.mtvbtscanning));
-                break;
-
-            // searching bt finshed
-            case MSG_UPDATE_BT_FINISH:
-                if (mListBt.size() > 0) {
-                    mbtnBtConnect.setText(mContext
-                            .getString(R.string.mtvbtsearsuccess));
-                } else {
-                    mbtnBtConnect.setText(mContext
-                            .getString(R.string.mtvbtsearfail));
-                }
-                closeBtTest();
                 break;
             default:
                 break;
@@ -663,24 +430,6 @@ public class WifiBtGps extends AbsHardware {
         }
 
 	};
-
-	/**
-	 * @MethodName: updateConnectWifi
-	 * @Description:autotest update the info of the connected wifi
-	 * @return void
-	 * @throws Copyright
-	 *             (c) 2015, Malata All Rights Reserved.
-	 */
-	private void updateConnectWifi() {
-		// TODO Auto-generated method stub
-		mWifiAdmin = new WifiAdmin(mContext);
-		if (mWifiAdmin.getSpeed() > 0) {
-			sendMsg(MSG_UPDATE_WIFI_FINISH);
-			
-			mWifiAdmin.forget(mWifiAdmin.getNetworkId());//pss add for VFOZBENQ-140 20150921
-			
-		}
-	}
 
     /**
      * @MethodName: updateListview
@@ -722,17 +471,14 @@ public class WifiBtGps extends AbsHardware {
 
 	private void initList() {
 		// TODO Auto-generated method stub
-		mListBt = new ArrayList<Map<String, Object>>();
 		mListWifi = new ArrayList<Map<String, Object>>();
 	}
 
     private void initModule(View view) {
         // TODO Auto-generated method stub
         mbtnWifiConnect = (TextView) view.findViewById(R.id.mtvwificon);
-        mbtnBtConnect = (TextView) view.findViewById(R.id.mtvbtcon);
-        mlvBt = (ListView) view.findViewById(R.id.mlsbt);
         mlvWifi = (ListView) view.findViewById(R.id.mlswifi);
-		listOnItemLongclick();
+		//listOnItemLongclick();
 	}
 
 	/**
@@ -742,7 +488,7 @@ public class WifiBtGps extends AbsHardware {
 	 * @throws Copyright
 	 *             (c) 2015, Malata All Rights Reserved.
 	 */
-	private void listOnItemLongclick() {
+	/*private void listOnItemLongclick() {
 		// TODO Auto-generated method stub
 		mlvWifi.setOnItemClickListener(new OnItemClickListener() {
 
@@ -777,8 +523,7 @@ public class WifiBtGps extends AbsHardware {
 								}).create().show();
 			}
 		});
-
-	}
+	}*/
 
 	/**
 	 * @ClassName: ListComparator
@@ -813,8 +558,6 @@ public class WifiBtGps extends AbsHardware {
     private boolean unexpectedShutdown(){
         ActivityManager activityManager = (ActivityManager) mContext
                 .getSystemService(Context.ACTIVITY_SERVICE);
-        //Log.i("pss", ""+activityManager.getRunningTasks(1).get(0).topActivity
-        //        .getClassName());
         try {
             if (activityManager.getRunningTasks(1).get(0).topActivity
                     .getClassName().equals("com.mlt.factorytest.ItemTestActivity")) {
