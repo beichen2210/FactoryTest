@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- <fm>The middle shadow elevation value between top and bottom layouts -->
+    <dimen name="fm_middle_shadow">4dp</dimen>
+    <dimen name="text_fm_size">14dp</dimen>
+    <dimen name="station_value_size">88dp</dimen>
+    <dimen name="station_rds_size">14dp</dimen>
+    <dimen name="fm_rl_imgbtnpart_margin_left">8dp</dimen>
+    <dimen name="fm_rl_imgbtnpart_margin_right">8dp</dimen>
+    <dimen name="fm_rl_imgbtn_size">48dp</dimen>
+    <dimen name="fm_noheadset_img_part_height">320dp</dimen>
+    <dimen name="fm_noheadset_text_width">260dp</dimen>
+    <dimen name="fm_noheadset_text_size_land">22dp</dimen>
+    <dimen name="fm_noheadset_text_size">16dp</dimen>
+</resources>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mlt.factorytest"
+    android:sharedUserId="android.uid.phone"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!--  -->
+    <!-- android:sharedUserId="android.uid.system" -->
+    <uses-sdk 
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 蓝牙权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- FM收音机权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FM_RADIO" />
+    <uses-permission android:name="android.permission.ACCESS_MTK_MMHW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- NFC -->
+    <uses-permission android:name="android.permission.NFC" />
+    <!-- WIFI -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- network -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 耳机权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 授予程序使用摄像头的权限 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 开启闪光灯权限 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 遥控器权限 -->
+    <uses-permission android:name="android.permission.TRANSMIT_IR" />
+    <!-- 状态栏 -->
+    <uses-permission android:name="android.permission.STATUS_BAR" />
+    <uses-permission android:name="android.permission.DISABLE_STATUS_BAR" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FINGERPRINT_ENROLL" />
+    <uses-permission android:name="android.permission.FINGERPRINT_VERIFY" />        
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!-- android:process="com.android.phone" -->
+
+    <application
+        android:name="com.mlt.factorytest.item.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.mlt.factorytest.MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+            <action android:name="com.mlt.factorytest.action.TEST_LIST" />
+
+            <category android:name="android.intent.category.DEFAULT" /> 
+              
+             <!-- <action android:name="android.intent.action.MAIN" />
+
+               <category android:name="android.intent.category.LAUNCHER" />-->
+                
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mediatek.fmradio.FmRadioActivity" >
+        </activity>
+        <activity
+            android:name="com.mlt.factorytest.ManualTestActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_manual_test"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- android:launchMode="singleInstance"  存在问题 -->
+        <activity
+            android:name="com.mlt.factorytest.ItemTestActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlt.factorytest.AutoTestActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlt.factorytest.Te3stReportActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlt.factorytest.RebootActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity android:name="com.mlt.factorytest.item.nfc.VirtualCardFunction" >
+        </activity>
+        
+        <activity android:name="com.mlt.factorytest.TestReportActivity" >
+        </activity>
+		
+        <provider
+            android:name="com.mlt.factorytest.item.service.FpDBContentProvider"
+            android:authorities="com.mlt.factorytest.item.service.fpdbcontentprovider" />
+   
+        <service
+          android:name="com.mlt.factorytest.item.service.FingerprintHandleService"
+            android:enabled="true"
+            android:permission="com.fingerprint.FP_HANDLE_PERMISSION" >
+        </service>
+
+        <uses-library android:name="android.test.runner" /> <!-- 八股文：  引入测试库 -->
+
+    </application>
+
+    <!-- 被测试的目标包与instrumentation的名称。 -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for FactoryTest"
+        android:targetPackage="com.mlt.factorytest" />
+
+</manifest>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/floralwhite">
+
+  
+    
+
+          <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/breathlight_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+			android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="@string/breathlight_title"
+            android:textColor="@color/black"
+            style="@style/TextTitle" />
+    </RelativeLayout>
+    
+    <View
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="6dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/breathlight_title"
+        android:layout_marginTop="20dp"
+        android:background="@color/green" />
+    
+    
+  
+          
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+         <TextView
+           android:id="@+id/led_note"
+           android:layout_marginTop="150dp"
+           android:layout_width="match_parent"
+           android:layout_height="80dp"
+           android:gravity="center"
+           android:text="@string/breathlight_note"
+           style="@style/textStyle_20" />
+         <TextView 
+             android:id="@+id/breath_change"
+             android:layout_below="@+id/led_note"
+             android:layout_width="match_parent"
+             android:layout_height="60dp"
+             android:gravity="center"
+             android:text="@string/breathing"
+             style="@style/textTitle_m"/>
+         
+        <View
+	        android:layout_width="fill_parent"
+	        android:layout_height="6dip"
+	        android:layout_alignParentBottom="true"
+	        android:layout_gravity="end"
+	        android:layout_marginBottom="0dp"
+	        android:layout_marginTop="5dp"
+	        android:background="@color/green" />
+    </RelativeLayout>
+     
+     
+   <!--  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_weight="1"
+        android:orientation="vertical" > -->
+
+        <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+               
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/led_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:visibility="invisible"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/selector_button"
+                    android:onClick="ledAndKeypadOnclick"
+                    android:text="@string/led_open" />
+
+                <Button
+                    android:id="@+id/led_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_margin="10dp"
+                    android:visibility="invisible"
+                    android:background="@drawable/selector_button"
+                    android:onClick="ledAndKeypadOnclick"
+                    android:text="@string/led_close" />
+            </LinearLayout>
+        </LinearLayout> -->
+
+        <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/keypad_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:text="@string/keypad_backlight_note"
+                    android:textSize="15sp"  />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/keypad_open"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:visibility="invisible"
+                    android:background="@drawable/selector_button"
+                    android:onClick="ledAndKeypadOnclick"
+                    android:text="@string/keypad_open" />
+
+                <Button
+                    android:id="@+id/keypad_close"
+                    android:background="@drawable/selector_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:visibility="invisible"
+                    android:onClick="ledAndKeypadOnclick"
+                    android:text="@string/keypad_close" />
+            </LinearLayout>
+        </LinearLayout> -->
+   <!--  </LinearLayout> -->
+
+</LinearLayout>

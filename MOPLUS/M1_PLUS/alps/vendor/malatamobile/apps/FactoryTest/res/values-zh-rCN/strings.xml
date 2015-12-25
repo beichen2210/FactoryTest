@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--pss add for VFOZBENQ-83 20150909-->
+    <string name="app_name">工厂测试</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="bt_auto_test">自动测试</string>
+    <string name="bt_manual_test">手动测试</string>
+    <string name="bt_test_report">测试报告</string>
+    <string name="bt_reboot">恢复出厂设置</string>
+    <string name="title_activity_manual_test">手动测试</string>
+    <string name="bt_pass">通过</string>
+    <string name="bt_fail">失败</string>
+    <!-- 测试项的名字 -->
+    <string name="item_keymotor">按键/马达</string>
+    <string name="item_simcard">打电话\n/卡检测</string>
+    <string name="item_TouchPanel">触摸屏</string>
+    <string name="item_LCD">LCD</string>
+    <string name="item_GssorGyroCal">加速度\n/陀螺仪校准</string>
+    <string name="item_Flash">闪光灯</string>
+    <string name="item_VersionInfo">版本/充电</string>
+    <string name="item_Loudspeaker">喇叭测试</string>
+    <string name="item_Ringtone">麦克/听筒</string>
+    <string name="item_SensorShow">传感器</string>
+    <string name="item_FM">FM</string>
+    <string name="item_NFC">NFC</string>
+    <string name="item_SystemCamera">前后相机</string>
+    <string name="item_Headset">耳机测试</string>
+    <string name="item_hall_switch">霍尔开关</string>
+    <string name="item_lcdbacklight">LCD背光</string>
+    <string name="item_ledkeypad">LED</string>
+    <!--<string name="item_wifibtgps">蓝牙\n/WIFI/GPS</string> 
+    <string name="wifibtgps">蓝牙/WIFI/GPS</string> -->
+    <!-- pss modify VFOZBENQ-92 20150910--> 
+    <string name="item_wifibt">WIFI</string>      <!-- pss modify for VFOZESGW-73 20151016-->
+    <string name="item_gps">GPS</string>
+    <string name="wifibt">WIFI</string>    <!-- pss modify for VFOZESGW-73 20151016-->
+
+    <!-- lcd测试文本 -->
+    <string name="lcd_tips">图片显示是否均匀正常</string>
+
+    <!-- FM收音机 -->
+    <string name="dlg_noantenna_text">您需要使用耳机来充当天线，请插入耳机。</string>
+    <string name="dlg_noantenna_title">插入耳机</string>
+    <string name="btn_yes">是</string>
+    <string name="btn_no">确认</string>
+    <string name="default_station_name">New Channel</string>
+    <string name="openDevice_success">打开FM设备成功！\n\t\t\t播放中...</string>
+    <string name="openDevice_fail">打开FM设备失败！</string>
+    <string name="fmIsOpening">正在打开FM设备...</string>
+    <string name="nfc_inTesting">测试中..</string>
+    <string name="nfc_testfinish">测试完毕！</string>
+    <string name="fm_unit">MHz</string>
+
+    <!-- 传感器 -->
+    <string name="tv_gsgyrocal_title">校准加速度/陀螺仪</string>
+    <string name="tv_gsgyrocal_info">请先将手机放置于水平桌面</string> <!-- chb modify for factorytest -->
+    <string name="bt_gsgyrocal_start">开始校准</string>
+    <string name="tv_gsgyrocal_hint_gyro">2.陀螺仪校准(成功-变绿)</string>
+    <string name="tv_gsgyrocal_hint_gsensor">1.加速度校准(成功-变绿)</string>
+    <string name="tv_use_sensor_info">如果当前手机没有相应的传感器，请取消勾选对应传感器，避免影响测试！</string>
+    <string name="cal_status_un">未   校   准</string>
+    <string name="cal_status_ing">校   准   中</string>
+    <string name="cal_status_success">校准成功</string>
+    <string name="cal_status_fail">校准失败</string>
+    <string name="tv_gssor_not_available">该手机不支持加速度传感器！</string>
+    <string name="tv_gyro_not_available">该手机不支持陀螺仪！</string>
+    <string name="tv_mssor_not_available">该手机不支持地磁传感器！</string>
+    <string name="tv_lssor_not_available">该手机不支持光传感器！</string>
+    <string name="tv_pssor_not_available">该手机不支持距离传感器！</string>
+    <string name="tv_use_gyroscope">陀螺仪</string>
+    <string name="tv_use_gsensor">加速度传感器</string>
+    <string name="tv_gssor">1.加速度传感器：</string>
+    <string name="tv_gssor1">（改变手机放置的正、反、上、下、左、右，是否变绿）</string>
+    <string name="tv_gryo">2.陀    螺    仪:</string>
+    <string name="tv_mssor">3.磁场传感器:</string>
+    <string name="tv_lssor">4.光线传感器:</string>
+    <!-- 屏幕颜色变绿 -->
+    <string name="tv_lssor1">（当手挡住器件光线时,屏幕颜色是否变绿）</string>
+    <!-- 屏幕颜色变绿 -->
+    <string name="tv_pssor">5.距离传感器:</string>
+    <!-- 屏幕颜色变蓝 -->
+    <string name="tv_pssor1">（当手靠近器件上方时,屏幕颜色是否变蓝）</string>
+    <!-- 屏幕颜色变蓝 -->
+    <string name="toast_cal_success">校准成功</string>
+    <string name="toast_cal_failed">校准失败</string>
+    <string name="cal_gyro_start">陀螺仪：</string>
+    <string name="cal_gssor_start">加速度传感器：</string>
+    <string name="tv_sensor_is_change">(是否都跳动)</string>
+
+    <!-- 测试报告 -->
+    <string name="report_title">测试报告</string>
+    <string name="report_pass_item">正确项</string>
+    <string name="report_fail_item">错误项</string>
+    <string name="report_uncheck_item">未检测项</string>
+    <string name="report_no_item">无</string>
+    <string name="btn_clear_state">清除数据</string>
+    <!-- 自动测试 -->
+    <string name="auto_test_finish">自动测试完成！</string>
+    <!-- 触摸屏 -->
+    <string name="touch_panel_test_success">触摸屏测试完成！</string>
+    <string name="tp_test_pass_hint">通过！点击屏幕继续</string>
+
+    <!-- CHB的文本 -->
+    <!-- 版本、电池信息 -->
+    <string name="Version">版本信息</string>
+    <string name="Battery">充电状态</string>
+    <string name="sw_ver_">SW Ver</string>
+    <string name="barcode_">BarCode</string>
+    <string name="imei1_">IMEI1</string>
+    <string name="imie2_">IMEI2</string><!--pss modify for the bug of customer 8154-->
+    <string name="bt_addr_">BT ADDR</string>
+    <string name="wifi_mac_">WIFI MAC</string>
+    <string name="bulidtime_">BulidTime</string>
+    <string name="_batteryCharging">充电变绿</string>
+    <string name="_chargingVoltage">电池电压:</string>
+    <string name="_chargingCurrent">充电电流</string>
+    <string name="_batteryCurrent">电池电流:</string>
+    <string name="chargingVol">充电电压</string>
+    <string name="discharging">正在放电</string>
+    <string name="chargingUSB">正在充电（USB）</string>
+    <string name="chargingAC">正在充电（AC）</string>
+    <string name="plug_charged">请插入充电器测试充电情况。</string>
+    <!-- 喇叭测试模块 -->
+    <string name="_headset_listen">耳机听声</string>
+    <string name="_inHeadset">2.插入耳机</string>
+    <string name="_headset_loud">这时外放</string>
+    <string name="_isNorml">（是否正常）</string>
+    <string name="_isNoVould">（是否无声）</string>
+    <string name="_loud_Music">1.外放测试</string>
+    <string name="ishassound">请判断:现在耳机与外放的是否正常。</string>
+    <string name="isloudspeakernomal">外放播放正常后，\n请插入耳机继续测试。</string>
+    <string name="isloudnomal">请判断外放正常，再插入耳机测试。</string>
+    <string name="headset_connected">已插入</string>
+    <string name="headset_unconnected">未插入</string>
+    <string name="music_file_no_exits">指定音乐文件不存在SD卡根目录</string>
+    <string name="SDcard_no_exits">音乐文件不存在与SD卡，播放预置歌曲</string>
+    <string name="string_error_report">错误报告</string>
+    <string name="string_can_not_copy">无法复制</string>
+    <string name="play_music">播放曲目:</string>
+    <string name="play_music_path">T卡: testsong</string>
+    <string name="play_music_exits">（是否存在）</string>
+    <string name="exits">存在</string>
+    <string name="no_exits">不存在</string>
+    <string name="file_no_exits">文件不存在</string>
+    <!-- 麦克风听筒模块 -->
+    <string name="_second_mic">副MIC</string>
+    <string name="_close">（暂不支持）</string>
+    <string name="_open">（已经打开）</string>
+    <string name="_main_second">主副</string>
+    <string name="judge_loudspeaker">插入耳机后请判断:</string>
+    <string name="_mic_main">主MIC</string>
+    <string name="_headset_mic_juge">（请对着耳麦吹气，耳机听筒发声，并判断是否正常）</string>
+    <string name="hear_From_ringtone">请从听筒听声。</string>
+    <string name="test_headset">请开始测试,对耳麦吹气。</string>
+    <string name="mic_test_tip">（请对麦克风说话，同时从听筒听声。）</string>
+    <string name="insert_the_headset">请先插入耳机,再进行测试！</string>
+    <string name="out_the_headset">请先拔出耳机,再进行测试!</string>
+    <string name="tip">提示</string>
+    <string name="tip_ok">确认</string>
+    <string name="tvrefmictest">副麦测试</string>
+    <string name="refmic">副麦</string>
+    <string name="themainMICtest">主麦测试</string>
+    <string name="MAIN_Please_speaking">请对主麦说话。</string>
+    <string name="Stop_talking_and_playing">停止说话  播放录音</string>
+	<string name="Stop_playing">停止播放</string>
+    <!-- 耳机模块 -->
+    <string name="headset">耳机检测</string>
+    <string name="_ununited">未插入</string>
+    <string name="_speakToHeadsetMic">2.耳麦吹气检测:</string>
+    <string name="_pressHeadset">3.耳机按键检测（变绿）:</string>
+    <string name="headsetstate">1.耳机插入:</string>
+    <string name="head_tip">请插入耳机进行测试！</string>
+    <string name="_headin">未插入</string>
+    <string name="inside_Headset">请插入耳机进行测试。</string>
+    <string name="press_key_no">未按按键</string>
+    <string name="press_key_yes">已按按键</string>
+    <!-- 相机模块 -->
+    <string name="_mainCamera_TAG">主:拍照标志</string>
+    <string name="_secondCamera_TAG">副:拍照标志</string>
+    <string name="_flash_TAG">闪光标志</string>
+    <string name="checkCamera">设备不支持相机功能</string>
+    <string name="changeCamera">点击按钮,可切换前后摄像头!</string>
+    <string name="Flashfinished">闪光完成</string>
+    <string name="Mainpicturessuccess">主摄像头:拍照完成</string>
+    <string name="Mainpicturesfailure">主摄像头:拍照失败</string>
+    <string name="SUBpicturessuccess">副摄像头:预览完成</string>
+    <string name="SUBpicturesfailure">副摄像头:预览失败</string>
+    <string name="back_camera">1.后置摄像头:</string>
+    <string name="front_camera">2.前置摄像头:</string>
+    <string name="open_tag">打开</string>
+    <string name="takepicture_tag">未进行</string>
+    <string name="Main">主</string>
+    <string name="SUB">副</string>
+    <string name="bcamera_no_exits">后置相机不存在</string>
+    <!-- chb add for VFOZESGW-81 begin -->
+    <string name="bcamera_no_exits_flash">后置相机不存在，闪光灯异常。</string>
+    <string name="fcamera_no_exits_flash">前置相机不存在，闪光灯异常。</string>
+    <string name="flash_exception">打开闪光灯异常。</string>
+    <!-- chb add for VFOZESGW-81 end -->
+    <string name="fcamera_no_exits">前置相机不存在</string>
+    <string name="success">成功</string>
+    <string name="fail">失败</string>
+    <string name="noprocess">未进行</string>
+    <string name="fenge">：</string>
+    <string name="judge">判断：</string>
+
+    <!-- 闪光灯模块 -->
+    <string name="open">打开</string>
+	<string name="had_open">已打开</string>
+	<string name="had_close">已关闭</string>
+	<string name="close">关闭</string>
+	<!-- chb modify for error strings 2015-11-25 begin -->
+	<string name="front_flash">前置闪光灯</string>
+	<string name="openfront_flash">打开前置闪光灯</string>
+	<string name="openback_flash">打开后置闪光灯</string>
+	<string name="flash_back">后置闪光灯</string>
+	<string name="flashled_tip">（请点击按钮，切换闪光灯，进行判断）</string>
+	<string name="flashled_unsupport">该手机不支持闪光灯！</string>
+	<!-- chb modify for error strings 2015-11-25 end -->
+    <!-- reboot 模块 -->
+    <string name="rebootphone">重置手机</string>
+    <string name="reboot_tip">格式化手机存储</string>
+    <string name="reboot_tip1">清除手机存储中的全部数据，例如音乐或照片</string>
+    <string name="reboot_tip_final">确定清除个人信息和所有存储吗？请注意，此操作无法撤销！</string>
+    <string name="hello">Device reboot Demo</string>
+    <string name="disreboot">取消恢复出厂设置</string>
+    <string name="ablereboot">激活恢复出厂设置</string>
+    <string name="ckdisablereboot">取消格式化手机</string>
+    <string name="reboot_message">警告：\n此操作为恢复手机出厂设置，激活后将清除手机上的所有数据，请慎用！</string>
+    <string name="reset_factory_ok">确定</string>
+    <string name="reset_factory_cancel">取消</string>
+    <string name="reset_factory_context">确认进行恢复出厂设置?</string>
+    
+   	
+   	
+	
+   
+		
+    <!-- 按键和马达测试名字 -->
+    <string name="keytest">按键检测</string>
+    <string name="motortest">马达检测</string>
+
+    <!-- 20150117 15:04 -->
+    <string name="start_backlight">正在LED、背光测试</string>
+    <!-- 霍尔开关 -->
+    <string name="holzer_tips">请将磁铁靠近手机进行测试</string>
+    <string name="holzer_init">未工作</string>
+    <string name="holzer_on">合并</string>
+    <string name="holzer_off">展开</string>
+    <string name="holzer_test">霍尔开关未检测</string>
+    <string name="holzer_test1">霍尔开关正常</string>
+
+    <!-- 背光测试 -->
+    <string name="mtvlcdbacklighttitle">LCD背光检测</string>
+    <string name="mtvledbacklighttitle">LED检测</string>
+    <string name="mtvbacklighttitle">按键背光检测</string>
+    <string name="mtvlcdbacklight3">亮度自动调节已打开，请设置为手动调节，进行屏幕背光测试</string>
+    <string name="mtvlcdbacklight4">屏幕背光	 是否明暗交替</string>
+    <string name="mtvledbacklightnote">↑↑↑ 1.LED是否颜色交替闪烁  </string>
+    <string name="mtvkeypadbacklightnote">↓↓↓ 2.按键背光 是否一起闪烁 </string>
+
+    <!-- 按键和马达检测 -->
+    <string name="mtvvolumeup">音量上</string>
+    <string name="mtvvolumedown">音量下</string>
+    <string name="mtvpower">电源</string>
+    <string name="mtvmenu">菜单</string>
+    <string name="mtvhome">主页</string>
+    <string name="mtvback">后退</string>
+    <string name="mbtmotorStop">停止马达</string>
+
+    <!-- 信号及各卡的检测 -->
+    <string name="mtvtel">tel:</string>
+    <string name="mbtsim1callmobile">10086</string>
+    <string name="mbtsim2callmobile">10086</string>
+    <string name="mbtsim1callunicom">10010</string>
+    <string name="mbtsim2callunicom">10010</string>
+    <string name="mtvsimtitle">卡检测/拨打信号</string>
+    <string name="mtvtname">T卡</string>
+    <string name="mtvemmcname">eMMc</string>
+    <string name="mtvemmcfatname">eMMc FAT</string>
+    <string name="mtvsim1name">SIM卡1</string>
+    <string name="mtvsim2name">SIM卡2</string>
+    <string name="mtvhascard">有卡</string>
+    <string name="mtvnocard">无卡</string>
+    <string name="mtvseperator">/</string>
+    <string name="mtvmb">MB</string>
+    <string name="mtvgb">GB</string>
+    <string name="mtvsimtile">拨打电话</string>
+    <string name="mtvcardtile">存储卡检测</string>
+    <string name="mtvusbname">otg</string>
+
+
+    <!-- 蓝牙&WIFI&GPS -->
+    <string name="mtvwifi">1.Wifi</string>
+    <string name="mtvbluetooth">2.蓝牙</string>
+    <string name="mtvgps">3.GPS</string>
+    <string name="mtvconcomplete">连接成功</string>
+    <string name="mtvconfail">连接失败</string>
+    <string name="mtvsearsuccess">搜索成功</string>
+    <string name="mtvsearfail">搜索失败</string>
+    <string name="mtvssid">SSID:</string>
+    <string name="mtvchannel">信道:</string>
+    <string name="mtvaccstrength">信号强度:</string>
+    <string name="mtvwifisearlist">搜索WIFI列表如下：</string>
+    <string name="mtvspeed">速率:</string>
+    <string name="mtvequipment">“设备名”</string>
+    <string name="mtvstrength">“强度(/dBm)”</string>
+    <string name="mtvsnr">信噪比(/db)</string>
+    <string name="mtvpostime">定位时间:</string>
+    <string name="mtvsatnum">“卫星号”</string>
+    <string name="mtvrefresh">点此刷新WIFI列表</string>
+    <string name="mtvtesting">测试中</string>
+    <string name="mtvdbm">dBm</string>
+    <string name="mtvwifiscanning">WIFI搜索中...</string>
+    <string name="mtvwificonnectting">WIFI连接中...</string>
+    <string name="mtvinitwifi">初始化WIFI</string>
+    <string name="mtvinitwififail">初始化WIFI失败</string>
+    <string name="mtvwificonnectting1">WIFI二次连接中...</string>
+    <string name="mtvbtsearsuccess">搜索完成</string>
+    <string name="mtvbtsearfail">搜索完成，未发现蓝牙设备</string>
+    <string name="mtvbtscanning">蓝牙搜索中...</string>
+    <string name="mtvbtconnectting">蓝牙连接中...</string>
+    <string name="mtvinitbt">初始化蓝牙</string>
+    <string name="mtvinitbtfail">初始化蓝牙失败</string>
+    <string name="mtvms">ms</string>
+    <string name="mtvgpssearfail">搜索超时</string>
+    <string name="mtvgpsscanning">GPS搜索中</string>
+    <string name="mtvinitgps">初始化GPS</string>
+    <string name="mtvinitgpsfail">初始化GPS失败</string>
+    <string name="mtvsdcard">SD 卡</string>
+    <string name="mtvphoneStorage">手机存储</string>
+    <string name="mtvgpssearsuccess">已定位,卫星数：</string>
+    <string name="mtvs">s</string>
+	<string name="noTest">未测试</string>
+
+    <!-- 呼吸灯 -->
+    <string name="item_breathlight">呼吸灯</string>
+    <string name="breathlight_title">呼吸灯检测</string>
+    <string name="breathlight_note">↓↓↓ 呼吸灯是否进行呼吸和闪烁  </string>
+    <string name="breathing">呼吸闪烁中...</string>
+    <string name="test_finish_reboot">（仅供测试完成后使用）</string>
+    <string name="headsetout_tip">请拔出耳机再进行测试！</string> <!--chb add for factorytest 2015.7.23  -->
+	<!-- laiyang add for VFOZBENQ-78:添加多点触摸測試 20150902 start -->
+	<string name="allow_point_num">支持%d点</string>
+	<string name="multi_pointer_test">多点触摸测试</string>
+	<!-- laiyang add for VFOZBENQ-78:添加多点触摸測試 20150902 end -->
+	<string name="item_bt">BT</string>
+	
+	<!-- 指纹识别 -->
+	<string name="item_fingerprint">指纹测试</string>
+    <string name="capture_put_finger_on">请放置手指</string>
+    <string name="capture_notice_put_on_screen">抬起手指并放在背后%1$s的指纹识别器上。</string>
+    <string name="capture_notice_put_on_screen_outside">抬起手指并放在背后%1$s的指纹识别器上。</string>
+    <string name="center_area">中心区域</string>
+    <string name="outside_area">边缘区域</string>
+    <string name="register_touchhomekey">请放置手指</string>
+    <string name="register_notice_content_one">触碰中心区域来进行指纹测试。请确保覆盖有效区域和保持手指干燥。</string>
+    <string name="register_dialog_key_good">好</string>
+    <string name="register_notice_the_hand">请抬起手指</string>
+    <string name="register_register_failed">测试时间结束</string>
+    <string name="register_notice_title_keeptouch">保持触碰中心区域</string>
+    <string name="register_notice_keeptouch">感觉到震动再放开手指</string>
+    <string name="register_change_catch_style">调整持握姿势</string>
+    <string name="register_get_slide_fingerprint">继续捕捉您指纹的边缘</string>
+    <string name="register_register_complete">测试完成</string>
+    <string name="register_complete_infomation">指纹测试成功。</string>
+    <string name="register_notice">手指移动</string>
+    <string name="register_notice_steady">保持手指稳定</string>
+    <string name="register_notiece_steady_content">放置手指在有效区域直到被要求抬手</string>
+    <string name="register_no_piece_together">请勿大幅移动手指</string>
+    <string name="register_no_move">请稍稍移动手指</string>
+    <string name="register_continue">继续</string>
+    <string name="register_bad_images">请确保手指干燥或者指纹触控干净</string>
+    <string name="algoresult_stategy">策略 :%d</string>
+    <string name="algoresult_img_qulity">图片质量 ： %1$s</string>
+    <string name="algoresult_is_study">是否学习 ： </string>
+    <string name="algoresult_effective_area">有效面积 ： %1$s</string>
+    <string name="algoresult_is_stitch">是否拼接 ： %1$s</string>
+    <string name="algoresult_is_delete">是否回退 ：  %1$s</string>
+    <string name="algoresult_temp_count">模板数目 ：  %1$s</string>
+    <string name="algoresult_register_percent">注册进度 ： </string>
+    <string name="algoresult_overlay_ratio">重叠比例 ： %1$s</string>
+    <string name="algoresult_overlay_index">重叠模板 ：%1$s</string>
+    <string name="algoresult_register_time">注册时间 ： </string>
+    <string name="algoresult_preoverlay_ratio">上重叠率 ：%1$s</string>
+	
+	
+</resources>

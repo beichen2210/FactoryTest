@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/floralwhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="@string/keytest"
+            android:textColor="@color/black"
+            style="@style/TextTitle"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/mtvvolumeup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_horizontal"
+                android:text="@string/mtvvolumeup"
+                android:textColor="#000000"
+                style="@style/textStyle" />
+
+            <TextView
+                android:id="@+id/mtvvolumedown"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_horizontal"
+                android:text="@string/mtvvolumedown"
+                android:textColor="#000000"
+                style="@style/textStyle"  />
+
+           <!--  chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  begin -->
+           <!--  <TextView
+                android:id="@+id/mtvpower"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_horizontal"
+                android:text="@string/mtvpower"
+                android:textColor="#000000"
+                style="@style/textStyle"  /> -->
+          <!--  chb modify for LFZS-119:factorytest deleted power_key test 2015.7.23  end -->
+        </LinearLayout>
+
+       
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/mtvmenu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_horizontal"
+                android:text="@string/mtvmenu"
+                android:textColor="#000000"
+                style="@style/textStyle" />
+
+            <TextView
+                android:id="@+id/mtvhome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_horizontal"
+                android:text="@string/mtvhome"
+                android:textColor="#000000"
+                style="@style/textStyle" />
+            <TextView
+                android:id="@+id/mtvback"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:enabled="false"
+                android:gravity="center_horizontal"
+                android:text="@string/mtvback"
+                android:textColor="#000000"
+                style="@style/textStyle" />
+        </LinearLayout>
+        
+         <View 
+	      	 android:layout_marginTop="10dp"
+	         android:layout_height="6dip"
+	         android:layout_marginBottom="10dp"
+	         android:layout_width="match_parent" 
+	  		 android:background="@color/green" /> 
+        
+        <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="@string/motortest"
+            android:textColor="@color/black"
+            style="@style/TextTitle"/>
+    </RelativeLayout>
+     <Button
+            android:id="@+id/mbtmotorStop"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:background="@drawable/selector_button"
+            android:onClick="MotorStop_OnClick"
+            android:text="@string/mbtmotorStop"
+            android:textStyle="bold"
+            style="@style/textStyle_20" />
+    </LinearLayout>
+
+</RelativeLayout>

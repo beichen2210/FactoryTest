@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM Test</string>
+    <string name="action_settings">Settings</string>
+    <string name="item_FM">FM</string>
+    <!-- FM收音机 -->
+    <string name="fm_symbol">FM</string>
+    <string name="talk_prev_station">Previous station</string>
+    <string name="talk_decrease">Decrease frequency</string>
+    <string name="talk_increase">Increase frequency</string>
+    <string name="talk_next_station">Next station</string>
+    <string name="fm_no_headset_text">Please insert the headset for testing.</string>
+    <!-- Toast message shown when FM power up failed [CHAR LIMIT=30] -->
+    <string name="not_available">Currently not available</string>
+    <string name="default_station_name">New Channel</string>
+    <string name="openDevice_success">Open FM device success！\n\t\t\tPlaying...</string>
+    <string name="openDevice_fail">Open FM device fail！</string>
+    <string name="fmIsOpening">Open FM device ...</string>
+    <string name="fm_unit">MHz</string>
+
+</resources>

@@ -1,0 +1,27 @@
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+
+# Date: wk14.40
+# Operation : SQC 
+# Purpose : [ALPS01756200] wwop boot up fail
+allow appdomain custom_file:dir { search getattr open read };
+allow appdomain custom_file:file { read open getattr};
+
+#Date : 2015/4/14
+# Operation: hgx
+# Package: com.mlt.factorytest
+allow appdomain fm_device:chr_file rw_file_perms;
+
+#Date : 2015/3/5
+# Operation: CHB
+# Package: com.mlt.factorytest
+allow appdomain MT_pmic_adc_cali_device:chr_file { read write ioctl open};
+
+#Date : 2015/7/18
+# Operation: CHB
+# Package: com.mlt.factorytest
+allow appdomain sys_batterycurrent_file:chr_file { read write ioctl open};
