@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="testitems">
+        <item >@string/item_VersionInfo</item>
+        <item >@string/item_TouchPanel</item>
+        <item >@string/item_LCD</item>
+        <item >@string/item_lcdbacklight</item>
+        <item >@string/item_ledkeypad</item>
+         <item >@string/item_keymotor</item>
+        <item >@string/item_breathlight</item>
+		<item >@string/item_Flash</item>
+        <item >@string/item_SystemCamera</item>
+        <item >@string/item_Ringtone</item>
+        <item >@string/item_Loudspeaker</item>
+        <item >@string/item_Headset</item>
+        <item >@string/item_FM</item>
+        <item >@string/item_GssorGyroCal</item>
+        <item >@string/item_SensorShow</item>
+        <item >@string/item_holzer_switch</item>
+        <item >@string/item_NFC</item>
+        <item >@string/item_simcard</item>
+        <item >@string/item_wifibtgps</item>
+    </string-array>
+    <!-- 测试类名 -->
+    <string-array name="testClassNames">
+        <item >com.mlt.factorytest.item.VersionAndBatteryTest</item>
+        <item >com.mlt.factorytest.item.TouchPanel</item>
+        <item >com.mlt.factorytest.item.LCD</item>
+        <item >com.mlt.factorytest.item.LcdBackLight</item>
+        <item >com.mlt.factorytest.item.LedKeypad</item>
+        <item >com.mlt.factorytest.item.KeyAndMotor</item>
+        <item >com.mlt.factorytest.item.BreathLight</item>
+		<item >com.mlt.factorytest.item.FlashLihgtTest</item>
+        <item >com.mlt.factorytest.item.CameraSystemTest</item>
+        <item >com.mlt.factorytest.item.AudioMicLoopTest</item>
+        <item >com.mlt.factorytest.item.AudioLoudspeakerTest</item>
+        <item >com.mlt.factorytest.item.AudioHeadsetTest</item>
+        <item >com.mediatek.FMRadio.FMRadioActivity</item>
+        <item >com.mlt.factorytest.item.GsensorGyroscopeCalibration</item>
+        <item >com.mlt.factorytest.item.SensorShow</item>
+        
+        <item >com.mlt.factorytest.item.HolzerSwitch</item>
+        <item >com.mlt.factorytest.item.nfc.NFC</item>
+        <item >com.mlt.factorytest.item.CardSimSingle</item>
+        <item >com.mlt.factorytest.item.WifiBtGps</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/floralwhite" >
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl" >
+        
+        <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        style="@style/TextTitle"
+        android:gravity="center"
+        android:layout_marginTop="20dip"
+        android:text="@string/item_NFC"   />
+     
+
+    <TextView
+        android:id="@+id/tv_readCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="140dp"
+        android:text="@string/nfc_readCard"
+        style="@style/textTitle_m"/>
+
+  
+
+    <TextView 
+        android:id="@+id/tv_readCardIntesting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_readCard"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/tv_readCard1"
+        android:text="@string/nfc_inTesting"
+        style="@style/textStyle"        />
+    
+
+    <!--  提示15cm不显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_readCardIntesting"
+        android:layout_toRightOf="@+id/tv_readCard1"
+        android:layout_marginLeft="44dp"
+        android:visibility="invisible"
+        android:text="@string/nfc_btTips"
+        style="@style/textTip"/>
+
+    <TextView
+        android:id="@+id/tv_readCardPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_readCard"
+        android:layout_toRightOf="@+id/tv_readCardIntesting"
+        android:layout_marginLeft="10dip"
+        style="@style/textStyle_20" />
+
+    <TextView
+        android:id="@+id/tv_readCard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_readCard"
+        android:layout_marginLeft="40dp"
+        android:text="@string/nfc_readCardTips"
+        style="@style/textTip"/>
+
+    <TextView
+        android:id="@+id/tv_cardSimulate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_readCard1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/nfc_CardSimulate"
+        style="@style/textTitle_m"/>
+
+    <Button
+        android:id="@+id/bt_cardSimulate"
+        android:layout_width="75dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_cardSimulate1"
+        android:layout_alignLeft="@+id/tv_readCardIntesting"
+        android:layout_toRightOf="@+id/tv_cardSimulate"
+        android:text="@string/nfc_bt_starTest"
+        android:background="@drawable/selector_button"
+        style="@style/textStyle" />
+
+     <!--  提示15cm不显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bt_cardSimulate"
+        android:layout_below="@+id/bt_cardSimulate"
+        android:layout_marginLeft="7dp"
+        android:visibility="invisible"
+        android:text="@string/nfc_btTips"
+        style="@style/textTip"/>
+
+    
+    <TextView
+        android:id="@+id/tv_cardSimulatePass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_cardSimulate"
+        android:layout_toRightOf="@+id/bt_cardSimulate"
+        android:layout_marginLeft="10dip"
+        android:visibility="invisible"
+         style="@style/textStyle_20"/>
+
+    <TextView
+        android:id="@+id/tv_cardSimulate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_cardSimulate"
+        android:layout_marginLeft="40dp"
+        android:text="@string/nfc_CardSimulateTips"
+        style="@style/textTip"/>
+
+    
+
+    </RelativeLayout> 
+    
+        <TextView
+        android:id="@+id/tv_nfctest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/hqa_nfc_tip_noNFC"
+        android:textColor="@android:color/holo_red_dark"
+        style="@style/textStyle_20" />
+        
+</RelativeLayout>

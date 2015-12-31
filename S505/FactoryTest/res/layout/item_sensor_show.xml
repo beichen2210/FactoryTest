@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/floralwhite" >
+    
+       <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentTop="true"
+    	    android:layout_marginTop="10dp"
+    	    android:layout_centerHorizontal="true"
+    	    android:gravity="center"
+    	    android:text="@string/item_SensorShow"
+    	    style="@style/TextTitle"/>
+      </RelativeLayout>
+        <View 
+      	 android:layout_marginTop="30dp"
+         android:layout_height="6dip"
+         android:layout_width="fill_parent" 
+  		 android:background="@color/green" />  
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        style="@style/textStyle"
+        android:id="@+id/rl_gsensor">
+        <TextView 
+            android:text="@string/tv_gssor"
+            android:id="@+id/tv_gssor_name"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            style="@style/textTitle_m"
+            android:layout_height="wrap_content"/>
+        <TextView 
+            android:layout_below="@+id/tv_gssor_name"
+            android:id="@+id/tv_gssor_name1"
+            android:text="@string/tv_gssor1"
+            style="@style/textTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_gssor"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/tv_gssor_name1"/>
+        <com.mlt.factorytest.customview.GSensorOriView 
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/tv_gssor_name1"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/gssor_ori"/>
+    </RelativeLayout>
+    
+    
+      <View 
+         android:layout_height="6dip"
+         android:layout_width="fill_parent" 
+  		 android:background="@color/green" />  
+  		 
+    <!-- 陀螺仪 -->
+    <RelativeLayout 
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rl_gyro">
+        <TextView 
+            android:text="@string/tv_gryo"
+            android:id="@+id/tv_gyro_name"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            style="@style/textTitle_m"
+            android:layout_height="wrap_content"/>
+        <TextView 
+            android:id="@+id/tv_gyro"
+            android:layout_alignTop="@id/tv_gyro_name"
+            android:layout_toRightOf="@id/tv_gyro_name"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="86dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_gyro_name"
+            android:layout_marginLeft="10dp"
+            style="@style/textTip"
+			android:id="@+id/tv_gyroscope_hint"            
+            android:text="@string/tv_sensor_is_change" />
+    </RelativeLayout>
+    <!-- 磁场传感器 -->
+    <RelativeLayout 
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rl_mssor">
+        <TextView 
+            android:text="@string/tv_mssor"
+            android:id="@+id/tv_mssor_name"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            style="@style/textTitle_m"
+            android:layout_height="wrap_content"/>
+        <TextView 
+            android:id="@+id/tv_mssor"
+            android:layout_alignTop="@id/tv_mssor_name"
+            android:layout_toRightOf="@id/tv_mssor_name"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_mssor_name"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_gsensor_hint"
+            style="@style/textTip"
+            android:text="@string/tv_sensor_is_change" />
+    </RelativeLayout>
+    
+      <View 
+          android:layout_marginTop="5dp"
+         android:layout_height="6dip"
+         android:layout_width="fill_parent" 
+  		 android:background="@color/green" />  
+    <!-- 光线传感器 -->
+    <RelativeLayout 
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rl_lssor">
+       <TextView 
+            android:text="@string/tv_lssor"
+            android:id="@+id/tv_lssor_name"
+            style="@style/textTitle_m"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView 
+            android:text="@string/tv_lssor1"
+            android:id="@+id/tv_lssor_name1"
+            android:layout_below="@+id/tv_lssor_name"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="3dp"
+            style="@style/textTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/textStyle"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/tv_lssor_name"
+            android:id="@+id/tv_lssor_value"/>
+     <!--    <ToggleButton 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lssor_status"
+            android:textOn="是"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:textOff="否"/>
+             -->
+    </RelativeLayout>
+    <!-- 距离传感器 -->
+    <RelativeLayout 
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rl_pssor">
+        <TextView 
+            android:text="@string/tv_pssor"
+            android:id="@+id/tv_pssor_name"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            style="@style/textTitle_m"
+            android:layout_height="wrap_content"/>
+        <TextView 
+            android:text="@string/tv_pssor1"
+            android:id="@+id/tv_pssor_name1"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tv_pssor_name"
+            android:layout_marginTop="3dp"
+            style="@style/textTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/textStyle"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/tv_pssor_name"
+            android:id="@+id/tv_pssor_value"/>
+       <!--   <ToggleButton 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pssor_status"
+            android:textOn="是"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:textOff="否"/>
+      -->
+    </RelativeLayout>
+	
+</LinearLayout>
