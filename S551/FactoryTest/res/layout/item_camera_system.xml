@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@color/floralwhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="4dp"
+            android:gravity="center"
+            android:text="@string/item_SystemCamera"
+            style="@style/TextTitle"/>
+    </RelativeLayout>
+    
+     <View 
+         android:layout_marginTop="20dp"
+         android:layout_height="6dip"
+         android:layout_width="fill_parent" 
+  		 android:background="@color/green" /> 
+  		 
+  	<LinearLayout
+  	    android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" >
+		<TextView 
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginTop="10dp"
+		    android:textColor="@color/black" 
+		    android:text="@string/back_camera"
+		    style="@style/textTitle_m" />
+		<TextView 
+		    android:id="@+id/back_camera_open_tag"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+		    android:textColor="@color/black" 
+		    android:layout_marginLeft="20dp"
+		    android:text="@string/open_tag"
+		    style="@style/textStyle"/>
+		
+		<TextView 
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/judge"
+            android:textColor="@color/black"
+            style="@style/textStyle_20"/>
+		<TextView 
+		    android:id="@+id/back_camera_takepicture_tag"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/takepicture_tag"
+            android:textColor="@color/black"
+            style="@style/textStyle"/>
+    </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="15dp"
+         android:layout_weight="1"
+         android:orientation="horizontal" >
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="10dp"
+             android:layout_marginTop="10dp"
+             android:text="@string/front_camera"
+             android:textColor="@color/black"
+             style="@style/textTitle_m" />
+
+         <TextView
+             android:id="@+id/front_camera_open_tag"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="20dp"
+             android:layout_marginTop="10dp"
+             android:text="@string/open_tag"
+             android:textColor="@color/black"
+             style="@style/textStyle"/>
+         <TextView 
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/judge"
+            android:textColor="@color/black"
+            style="@style/textStyle_20"/>
+
+         <TextView
+             android:id="@+id/front_camera_takepicture_tag"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="2dp"
+              android:layout_marginTop="10dp"
+             android:text="@string/takepicture_tag"
+             android:textColor="@color/black"
+             style="@style/textStyle"/>
+     </LinearLayout>
+
+     <View
+         android:layout_width="fill_parent"
+         android:layout_height="6dip"
+         android:layout_marginBottom="0dp"
+         android:layout_marginTop="0dp"
+         android:background="@color/green" />
+
+</LinearLayout>

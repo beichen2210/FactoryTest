@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/floralwhite"
+    android:id="@+id/rl_holzer" >
+
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:gravity="center"
+        android:text="@string/item_holzer_switch"
+         style="@style/TextTitle" />
+
+    <TextView
+        android:id="@+id/tv_holzer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="@string/holzer_tips"
+        android:textColor="@android:color/holo_red_dark"
+         style="@style/textStyle_20"/>
+    
+    <TextView 
+        android:id="@+id/tv_hol_testing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+         style="@style/textStyle_20"
+        android:text="@string/holzer_test"/>
+
+</RelativeLayout>
