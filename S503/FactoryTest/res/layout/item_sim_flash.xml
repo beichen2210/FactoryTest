@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/floralwhite"
+    android:orientation="vertical" >
+	
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="@string/mtvsimtile"
+            style="@style/TextTitle"/>
+    </RelativeLayout>
+     
+
+     
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:baselineAligned="false"
+	    android:layout_marginTop="20dp" >
+
+       <RelativeLayout
+           android:id="@+id/mrelsim1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="20dp"
+           android:layout_weight="1"
+           android:padding="2dp" >
+
+            <TextView
+                android:id="@+id/mtvsim1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textStyle_20"
+                android:layout_marginLeft="20dp"
+                android:text="@string/mtvsim1name"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/mtvsim1card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textStyle"
+                android:layout_toRightOf="@+id/mtvsim1"
+                android:layout_alignBottom="@+id/mtvsim1"
+              	android:padding="5dp"
+                android:layout_centerInParent="true"/>
+             <Button
+                android:id="@+id/mbtsim1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                
+                android:layout_alignLeft="@+id/mtvsim1"
+                android:layout_alignRight="@+id/mtvsim1"
+                android:layout_below="@+id/mtvsim1"
+           	    android:background="@drawable/selector_button"
+                style="@style/textStyle" 
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"/>
+
+           
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mrelsim2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:padding="2dp" >
+
+            <TextView
+                android:id="@+id/mtvsim2"
+                android:layout_marginLeft="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textStyle_20"
+				android:padding="5dp"
+                android:text="@string/mtvsim2name" />
+            <TextView
+                android:layout_toRightOf="@+id/mtvsim2"
+                android:id="@+id/mtvsim2card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/mtvsim2"
+                android:padding="5dp"           
+                style="@style/textStyle"/>     
+               
+            <Button
+                
+                android:id="@+id/mbtsim2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textStyle"
+                android:visibility="invisible"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:layout_alignLeft="@+id/mtvsim2"
+                android:layout_alignRight="@+id/mtvsim2"
+                android:layout_below="@+id/mtvsim2"
+                android:background="@drawable/selector_button"
+                />
+        </RelativeLayout>
+        
+    </LinearLayout>
+    
+	<LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            
+              
+        </LinearLayout>
+    
+	
+	<View 
+        android:layout_marginTop="25dp"
+         android:layout_height="6dip"
+         android:layout_width="fill_parent" 
+  		 android:background="@color/green" />
+	
+	 <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="@string/mtvcardtile"
+            style="@style/TextTitle"/>
+    </RelativeLayout>
+	
+	
+   <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+      <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/mtvt"
+                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:text="@string/mtvtname" />
+            <TextView
+                android:id="@+id/mtvtcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                style="@style/textStyle" 
+                />
+            <TextView
+                android:id="@+id/mtvtsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+       <RelativeLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"    >
+
+            <TextView
+                android:id="@+id/mtvemmc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:text="@string/mtvemmcname" />
+
+            <TextView
+                android:id="@+id/mtvemmccard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                style="@style/textStyle"
+                />
+            <TextView
+                android:id="@+id/mtvemmcsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+       <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/tvemmcfat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:text="@string/mtvemmcfatname" />
+
+
+            <TextView
+                android:id="@+id/mtvemmcfatcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+               	style="@style/textStyle"/>
+            <TextView
+                android:id="@+id/mtvemmcfatsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/mtvusb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:text="@string/mtvusbname" />
+
+            <TextView
+                android:id="@+id/mtvusbcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                style="@style/textStyle"/>
+
+            <TextView
+                android:id="@+id/mtvusbsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                style="@style/textStyle"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    
+
+</LinearLayout>
